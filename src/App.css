@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  /* Primary Colors */
+  --primary-color: #2D8A99;
+  --primary-dark: #1F5F6E;
+  --primary-light: #3BA5B8;
+  
+  /* Secondary - Green Accent */
+  --secondary-green: #6BBE8B;
+  --success-green: #27AE60;
+  
+  /* Alert Colors */
+  --warning-orange: #FFA500;
+  --danger-red: #E74C3C;
+  --info-blue: #3498DB;
+  
+  /* Text Colors */
+  --dark-gray: #333333;
+  --light-text: #666666;
+  --text-muted: #999999;
+  
+  /* Background */
+  --bg-white: #FFFFFF;
+  --bg-light: #F9FAFB;
+  --bg-light-gray: #F5F5F5;
+  
+  /* Borders */
+  --border-color: #E0E0E0;
+  --border-light: #F0F0F0;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Smooth transitions */
+a, button, input, select {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
