@@ -31,9 +31,18 @@ export default function LoginPage({ onLogin }) {
   return (
     <div className="login-container">
       <div className="login-header">
-        <h1 className="logo">MediArchive</h1>
+        <div className="logo-container">
+          <svg className="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+          <h1 className="logo">MediArchive</h1>
+        </div>
         <button className="about-btn" onClick={handleAboutClick}>
-          <span className="about-icon">ⓘ</span>
+          <svg className="about-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M12 11v5M12 8v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
           About Project
         </button>
       </div>
@@ -49,11 +58,17 @@ export default function LoginPage({ onLogin }) {
 
           <div className="action-buttons">
             <button className="action-btn patient-btn" onClick={() => setUserType('patient')}>
-              <span className="btn-icon">👤</span>
+              <svg className="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M6 20c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
               Login as Patient
             </button>
             <button className="action-btn doctor-btn" onClick={() => setUserType('doctor')}>
-              <span className="btn-icon">⚕️</span>
+              <svg className="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
               Login as Doctor
             </button>
           </div>

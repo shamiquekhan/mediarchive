@@ -83,20 +83,29 @@ export default function PatientDashboard({ onLogout }) {
       {/* Header */}
       <div className="patient-header">
         <div className="header-left">
-          <span className="header-icon">❤️</span>
+          <svg className="header-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
           <div>
             <h1>Patient Dashboard</h1>
             <p className="welcome-text">Welcome back, {patientInfo.name}</p>
           </div>
         </div>
         <button className="logout-btn" onClick={onLogout}>
-          <span>↗</span> Logout
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Logout
         </button>
       </div>
 
       {/* Health Alert Banner */}
       <div className="health-alert">
-        <span className="alert-icon">ⓘ</span>
+        <svg className="alert-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M12 11v5M12 8v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
         <div className="alert-content">
           <strong>Important Health Information</strong>
           <p>

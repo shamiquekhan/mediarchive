@@ -72,22 +72,36 @@ export default function DoctorDashboard({ onLogout }) {
       {/* Header */}
       <div className="doctor-header">
         <div className="header-left">
-          <span className="logo-icon">🛡️</span>
+          <svg className="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
           <h1 className="header-logo">MediArchive</h1>
         </div>
         <div className="header-search">
+          <svg className="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M16 16l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
           <input 
             type="text" 
-            placeholder="🔍 Search Patient" 
+            placeholder="Search Patient" 
             value={searchPatient}
             onChange={handleSearch}
           />
         </div>
         <div className="header-right">
-          <button className="notification-btn" onClick={() => alert('Notifications\n\n• New lab report available\n• Appointment reminder: 3:00 PM\n• Patient message received')}>🔔</button>
+          <button className="notification-btn" onClick={() => alert('Notifications\n\n• New lab report available\n• Appointment reminder: 3:00 PM\n• Patient message received')}>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
           <div className="doctor-profile">
             <div className="profile-avatar">
-              <span>👩‍⚕️</span>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M6 20c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
             </div>
             <div className="profile-info">
               <strong>{doctorInfo.name}</strong>
@@ -95,7 +109,10 @@ export default function DoctorDashboard({ onLogout }) {
             </div>
           </div>
           <button className="logout-btn" onClick={onLogout}>
-            <span>↗</span> Logout
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Logout
           </button>
         </div>
       </div>
@@ -107,7 +124,11 @@ export default function DoctorDashboard({ onLogout }) {
           {/* Patient Card */}
           <div className="patient-card">
             <div className="patient-photo">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23E0E7FF' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%233B82F6'%3E👤%3C/text%3E%3C/svg%3E" alt="Patient" />
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" fill="#E0E7FF"/>
+                <circle cx="50" cy="35" r="15" stroke="#3B82F6" strokeWidth="3"/>
+                <path d="M25 75c0-13.807 11.193-25 25-25s25 11.193 25 25" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round"/>
+              </svg>
             </div>
             <h2>{patientData.name}</h2>
             <p className="health-id">Health ID: {patientData.healthId}</p>
