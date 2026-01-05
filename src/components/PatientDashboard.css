@@ -130,7 +130,9 @@
 }
 
 .card-icon {
-  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
 }
 
 .alert-icon-red {
@@ -157,6 +159,16 @@
   font-size: 13px;
   color: #6B7280;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inline-icon {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  color: #9CA3AF;
 }
 
 .info-value {
@@ -316,6 +328,16 @@
   background: #EFF6FF;
   color: #1D4ED8;
   border-color: #BFDBFE;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.action-btn .btn-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
 }
 
 .action-btn.active:hover {
