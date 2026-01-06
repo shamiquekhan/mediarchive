@@ -19,7 +19,7 @@
 
 ### Login Page
 ![Login Page](screenshots/login-page.png)
-*Scandinavian minimalist design with role-based authentication*
+* Login with role-based authentication*
 
 ### Patient Dashboard
 ![Patient Dashboard](screenshots/patient-dashboard.png)
