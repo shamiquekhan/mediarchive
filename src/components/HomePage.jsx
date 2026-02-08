@@ -178,9 +178,9 @@ const HomePage = () => {
               </div>
               <h3>Unified Records</h3>
               <p>All your medical history, lab reports, prescriptions and imaging in one secure digital location</p>
-              <a href="#" className="service-arrow">
+              <span className="service-arrow">
                 <i className="bi bi-arrow-right"></i>
-              </a>
+              </span>
             </div>
             <div className="service-card-white scroll-animate">
               <div className="service-icon-box">
@@ -188,9 +188,9 @@ const HomePage = () => {
               </div>
               <h3>Secure Sharing</h3>
               <p>Share records via QR code or OTP with time-bound access that you control completely</p>
-              <a href="#" className="service-arrow">
+              <span className="service-arrow">
                 <i className="bi bi-arrow-right"></i>
-              </a>
+              </span>
             </div>
             <div className="service-card-white scroll-animate">
               <div className="service-icon-box">
@@ -198,9 +198,9 @@ const HomePage = () => {
               </div>
               <h3>Doctor Collaboration</h3>
               <p>Seamless communication between healthcare providers with complete patient consent</p>
-              <a href="#" className="service-arrow">
+              <span className="service-arrow">
                 <i className="bi bi-arrow-right"></i>
-              </a>
+              </span>
             </div>
             <div className="service-card-white scroll-animate">
               <div className="service-icon-box">
@@ -208,9 +208,9 @@ const HomePage = () => {
               </div>
               <h3>Mobile & Web Access</h3>
               <p>Access your records from any device, anywhere in India, with real-time updates</p>
-              <a href="#" className="service-arrow">
+              <span className="service-arrow">
                 <i className="bi bi-arrow-right"></i>
-              </a>
+              </span>
             </div>
           </div>
         </div>
