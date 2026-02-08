@@ -1,308 +1,634 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './DoctorDashboard.css';
 
-export default function DoctorDashboard({ onLogout }) {
-  const [searchPatient, setSearchPatient] = useState('');
-  const [activeFilter, setActiveFilter] = useState('6M');
+export default function DoctorDashboard() {
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedPatient, setSelectedPatient] = useState(null);
 
+  const handleLogout = () => {
+    navigate('/');
+  };
+
+  // Doctor Information
   const doctorInfo = {
     name: 'Dr. Anjali Rao',
-    specialization: 'Cardiologist'
+    specialization: 'Cardiologist',
+    hospital: 'Apollo Hospitals, Mumbai',
+    abhaId: '78-9012-3456-7890',
+    phone: '+91 98765 43210',
+    email: 'anjali.rao@apollohospitals.com',
+    experience: '15 years',
+    patients: 348,
+    consultationsToday: 12
   };
 
-  const patientData = {
-    name: 'Aarav Sharma',
-    healthId: '12-3456-7890-1234',
-    age: '45',
-    gender: 'Male'
-  };
-
-  const medicalHistory = [
+  // Linked Patients
+  const linkedPatients = [
     {
-      date: '14 August 2023',
-      type: 'Routine Check-up',
-      doctor: 'Dr. Priya Singh - General Physician',
-      diagnosis: 'Stable, no new concerns.',
-      notes: 'Advised to continue current medication and monitor blood pressure weekly'
+      id: 1,
+      name: 'Aarav Sharma',
+      abhaId: '12-3456-7890-1234',
+      age: 45,
+      gender: 'Male',
+      bloodGroup: 'O+',
+      lastVisit: '08-02-2026',
+      nextAppointment: '15-02-2026',
+      condition: 'Hypertension',
+      status: 'Active',
+      country: 'India'
     },
     {
-      date: '22 May 2023',
-      type: 'Prescription Refill',
-      doctor: 'Dr. Anjali Rao - Cardiologist',
-      diagnosis: '',
-      notes: ''
+      id: 2,
+      name: 'Priya Patel',
+      abhaId: '12-3456-7890-5678',
+      age: 32,
+      gender: 'Female',
+      bloodGroup: 'A+',
+      lastVisit: '05-02-2026',
+      nextAppointment: '12-02-2026',
+      condition: 'Diabetes Type 2',
+      status: 'Active',
+      country: 'India'
     },
     {
-      date: '05 January 2023',
-      type: 'Lab Report: Lipid Panel',
-      doctor: 'Metropolis Labs',
-      diagnosis: '',
-      notes: ''
+      id: 3,
+      name: 'Rajesh Kumar',
+      abhaId: '12-3456-7890-9012',
+      age: 58,
+      gender: 'Male',
+      bloodGroup: 'B+',
+      lastVisit: '28-01-2026',
+      nextAppointment: '20-02-2026',
+      condition: 'Coronary Artery Disease',
+      status: 'Active',
+      country: 'India'
+    },
+    {
+      id: 4,
+      name: 'Meera Singh',
+      abhaId: '12-3456-7890-3456',
+      age: 28,
+      gender: 'Female',
+      bloodGroup: 'AB+',
+      lastVisit: '07-02-2026',
+      nextAppointment: '14-02-2026',
+      condition: 'Asthma',
+      status: 'Active',
+      country: 'India'
+    },
+    {
+      id: 5,
+      name: 'Arjun Verma',
+      abhaId: '12-3456-7890-7890',
+      age: 52,
+      gender: 'Male',
+      bloodGroup: 'A-',
+      lastVisit: '01-02-2026',
+      nextAppointment: '22-02-2026',
+      condition: 'Arthritis',
+      status: 'Active',
+      country: 'India'
     }
   ];
 
-  const vitals = [
-    { name: 'Blood Pressure', value: '120/80 mmHg', status: 'normal' },
-    { name: 'Heart Rate', value: '72 bpm', status: 'normal' },
-    { name: 'SpO2', value: '98%', status: 'normal' }
+  // Recent Consultations
+  const recentConsultations = [
+    {
+      id: 1,
+      patientName: 'Aarav Sharma',
+      date: '2024-03-15',
+      time: '10:30 AM',
+      type: 'Follow-up',
+      diagnosis: 'Blood pressure stable',
+      prescription: 'Continue current medication'
+    },
+    {
+      id: 2,
+      patientName: 'Priya Patel',
+      date: '2024-03-10',
+      time: '02:00 PM',
+      type: 'Regular Check-up',
+      diagnosis: 'Blood sugar levels elevated',
+      prescription: 'Adjusted insulin dosage'
+    },
+    {
+      id: 3,
+      patientName: 'Rajesh Kumar',
+      date: '2024-02-28',
+      time: '11:15 AM',
+      type: 'Emergency Consultation',
+      diagnosis: 'Chest pain - ECG normal',
+      prescription: 'Prescribed beta-blockers'
+    }
   ];
 
-  const handleViewReport = (entry) => {
-    alert(`View Full Report\n\nDate: ${entry.date}\nType: ${entry.type}\nDoctor: ${entry.doctor}${entry.diagnosis ? '\nDiagnosis: ' + entry.diagnosis : ''}${entry.notes ? '\nNotes: ' + entry.notes : ''}`);
-  };
-
-  const handleAddEntry = () => {
-    alert('Add New Entry - Feature coming soon!\n\nThis will open a form to add new medical records.');
-  };
-
-  const handleFilterChange = (filter) => {
-    setActiveFilter(filter);
-    alert(`Showing data for: ${filter === '6M' ? '6 Months' : filter === '1Y' ? '1 Year' : 'All Time'}`);
-  };
-
-  const handleSearch = (e) => {
-    setSearchPatient(e.target.value);
-    if (e.target.value) {
-      alert(`Searching for patient: ${e.target.value}`);
+  // Dashboard Stats
+  const stats = [
+    {
+      icon: 'bi-people-fill',
+      label: 'Total Patients',
+      value: '1,250',
+      color: '#103713',
+      change: '+12%'
+    },
+    {
+      icon: 'bi-person-plus-fill',
+      label: 'New Staff',
+      value: '250',
+      color: '#628B35',
+      change: '+8%'
+    },
+    {
+      icon: 'bi-hospital-fill',
+      label: 'Total Rooms',
+      value: '180',
+      color: '#89A65F',
+      change: '+5%'
+    },
+    {
+      icon: 'bi-clipboard2-pulse-fill',
+      label: 'Total Doctors',
+      value: '120',
+      color: '#103713',
+      change: '+3%'
     }
+  ];
+
+  // Recent Activity (for future use)
+  /*
+  const recentActivity = [
+    {
+      action: 'New Patient Added',
+      detail: 'Meera Singh linked to your profile',
+      time: '2 hours ago',
+      icon: 'bi-person-plus-fill'
+    },
+    {
+      action: 'Consultation Completed',
+      detail: 'Follow-up with Aarav Sharma',
+      time: '5 hours ago',
+      icon: 'bi-check-circle-fill'
+    },
+    {
+      action: 'Lab Results Received',
+      detail: 'Lipid panel for Priya Patel',
+      time: '1 day ago',
+      icon: 'bi-file-earmark-medical-fill'
+    }
+  ];
+  */
+
+  const handlePatientSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
+
+  const handleSelectPatient = (patient) => {
+    setSelectedPatient(patient);
+    setActiveTab('patient-details');
+  };
+
+  const filteredPatients = linkedPatients.filter(patient =>
+    patient.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    patient.abhaId.includes(searchTerm)
+  );
 
   return (
-    <div className="doctor-dashboard">
-      {/* Header */}
-      <div className="doctor-header">
-        <div className="header-left">
-          <svg className="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
-            <path d="M12 7v10M7 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-          <h1 className="header-logo">MediArchive</h1>
+    <div className="modern-dashboard">
+      {/* Sidebar */}
+      <aside className="dashboard-sidebar">
+        <div className="sidebar-header">
+          <i className="bi bi-heart-pulse-fill"></i>
+          <h2>MediArchive</h2>
         </div>
-        <div className="header-search">
-          <svg className="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5"/>
-            <path d="M16 16l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-          <input 
-            type="text" 
-            placeholder="Search Patient" 
-            value={searchPatient}
-            onChange={handleSearch}
-          />
-        </div>
-        <div className="header-right">
-          <button className="notification-btn" onClick={() => alert('Notifications\n\n• New lab report available\n• Appointment reminder: 3:00 PM\n• Patient message received')}>
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <div className="doctor-profile">
-            <div className="profile-avatar">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M6 20c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <div className="profile-info">
-              <strong>{doctorInfo.name}</strong>
-              <span>{doctorInfo.specialization}</span>
-            </div>
+
+        <div className="sidebar-profile">
+          <div className="profile-avatar">
+            <i className="bi bi-person-fill"></i>
           </div>
-          <button className="logout-btn" onClick={onLogout}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Logout
+          <div className="profile-details">
+            <h3>{doctorInfo.name}</h3>
+            <p>{doctorInfo.specialization}</p>
+          </div>
+        </div>
+
+        <nav className="sidebar-nav">
+          <button 
+            className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
+            onClick={() => setActiveTab('dashboard')}
+          >
+            <i className="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'patients' ? 'active' : ''}`}
+            onClick={() => setActiveTab('patients')}
+          >
+            <i className="bi bi-people-fill"></i>
+            <span>Patients</span>
+            <span className="badge">{linkedPatients.length}</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'consultations' ? 'active' : ''}`}
+            onClick={() => setActiveTab('consultations')}
+          >
+            <i className="bi bi-clipboard-pulse"></i>
+            <span>Consultations</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'search' ? 'active' : ''}`}
+            onClick={() => setActiveTab('search')}
+          >
+            <i className="bi bi-search"></i>
+            <span>Patient Search</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`}
+            onClick={() => setActiveTab('profile')}
+          >
+            <i className="bi bi-person-circle"></i>
+            <span>Profile</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
+            onClick={() => setActiveTab('settings')}
+          >
+            <i className="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div className="sidebar-footer">
+          <button className="logout-btn" onClick={handleLogout}>
+            <i className="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
           </button>
         </div>
-      </div>
+      </aside>
 
       {/* Main Content */}
-      <div className="dashboard-layout">
-        {/* Left Column */}
-        <div className="left-column">
-          {/* Patient Card */}
-          <div className="patient-card">
-            <div className="patient-photo">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100" height="100" fill="#E0E7FF"/>
-                <circle cx="50" cy="35" r="15" stroke="#3B82F6" strokeWidth="3"/>
-                <path d="M25 75c0-13.807 11.193-25 25-25s25 11.193 25 25" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <h2>{patientData.name}</h2>
-            <p className="health-id">Health ID: {patientData.healthId}</p>
-            <p className="patient-details">{patientData.gender}, {patientData.age} years</p>
-            <button 
-              className="contact-btn"
-              onClick={() => alert(`Contact Details\n\n${patientData.name}\nPhone: +91 98765 43210\nEmail: aarav.sharma@email.com\nAddress: Mumbai, Maharashtra`)}
-            >
-              View Contact Details
+      <main className="dashboard-content">
+        {/* Top Bar */}
+        <div className="dashboard-topbar">
+          <div className="page-header">
+            <h1 className="page-title">
+              {activeTab === 'dashboard' && 'Dashboard Overview'}
+              {activeTab === 'patients' && 'My Patients'}
+              {activeTab === 'consultations' && 'Consultations'}
+              {activeTab === 'search' && 'Patient Search'}
+              {activeTab === 'profile' && 'My Profile'}
+              {activeTab === 'patient-details' && 'Patient Details'}
+              {activeTab === 'settings' && 'Settings'}
+            </h1>
+            <p className="topbar-subtitle">{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          </div>
+          <div className="topbar-actions">
+            <button className="icon-btn">
+              <i className="bi bi-bell-fill"></i>
+              <span className="badge">3</span>
+            </button>
+            <button className="icon-btn">
+              <i className="bi bi-chat-dots-fill"></i>
             </button>
           </div>
-
-          {/* Key Vitals */}
-          <div className="key-vitals">
-            <h3>Key Vitals</h3>
-            {vitals.map((vital, index) => (
-              <div key={index} className="vital-item">
-                <span className="vital-label">{vital.name}</span>
-                <div className="vital-value-row">
-                  <strong className="vital-value">{vital.value}</strong>
-                  <span className="vital-status">●</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Quick Links */}
-          <div className="quick-links">
-            <h3>Quick Links</h3>
-            <div className="links-placeholder">
-              {/* Placeholder for additional links */}
-            </div>
-          </div>
         </div>
 
-        {/* Center Column */}
-        <div className="center-column">
-          <div className="section-header">
-            <h2>Medical History</h2>
-            <button className="add-entry-btn" onClick={handleAddEntry}>+ Add New Entry</button>
-          </div>
-
-          <div className="timeline">
-            {medicalHistory.map((entry, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-date">{entry.date}</div>
-                <div className="timeline-content">
-                  <div className="timeline-header">
-                    <h4>{entry.type}</h4>
-                    <button className="expand-btn" onClick={() => alert('Expand/Collapse - Feature coming soon!')}>∨</button>
+        {/* Content Area */}
+        <div className="dashboard-main-content">
+          {/* Dashboard Tab */}
+          {activeTab === 'dashboard' && (
+            <>
+              {/* Stats Grid */}
+              <div className="stats-grid-modern">
+                {stats.map((stat, index) => (
+                  <div key={index} className="stat-card-modern">
+                    <div className="stat-header-modern">
+                      <div className="stat-icon-modern" style={{backgroundColor: `${stat.color}15`, color: stat.color}}>
+                        <i className={stat.icon}></i>
+                      </div>
+                      <i className="bi bi-heart-fill stat-heart"></i>
+                    </div>
+                    <div className="stat-body-modern">
+                      <h3 className="stat-value-modern">{stat.value}</h3>
+                      <p className="stat-label-modern">{stat.label}</p>
+                      <span className="stat-change">{stat.change}</span>
+                    </div>
                   </div>
-                  <p className="timeline-doctor">{entry.doctor}</p>
-                  {entry.diagnosis && (
-                    <>
-                      <p className="timeline-diagnosis"><strong>Diagnosis:</strong> {entry.diagnosis}</p>
-                      {entry.notes && (
-                        <p className="timeline-notes"><strong>Notes:</strong> {entry.notes}</p>
-                      )}
-                      <button 
-                        className="view-report-link" 
-                        onClick={() => handleViewReport(entry)}
-                      >
-                        View Full Report
-                      </button>
-                    </>
-                  )}
+                ))}
+              </div>
+
+              {/* Dashboard Grid */}
+              <div className="dashboard-grid-new">
+                {/* Latest Patients Data Table */}
+                <div className="dashboard-card-full">
+                  <div className="card-header">
+                    <h3><i className="bi bi-table"></i> Latest Patients Data</h3>
+                    <button className="text-btn" onClick={() => setActiveTab('patients')}>
+                      View All <i className="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                  <div className="modern-table-wrapper">
+                    <table className="patients-data-table">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Date</th>
+                          <th>Patient Name</th>
+                          <th>Age</th>
+                          <th>Country</th>
+                          <th>Gender</th>
+                          <th>Report</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {linkedPatients.slice(0, 5).map((patient, index) => (
+                          <tr key={patient.id}>
+                            <td>{index + 1}</td>
+                            <td>{patient.lastVisit}</td>
+                            <td>
+                              <div className="patient-name-cell">
+                                <div className="patient-avatar-small">
+                                  <i className="bi bi-person-fill"></i>
+                                </div>
+                                <span>{patient.name}</span>
+                              </div>
+                            </td>
+                            <td>{patient.age}</td>
+                            <td>{patient.country}</td>
+                            <td>
+                              <span className={`gender-badge ${patient.gender.toLowerCase()}`}>
+                                {patient.gender}
+                              </span>
+                            </td>
+                            <td>
+                              <button className="report-btn" onClick={() => alert(`Viewing report for ${patient.name}`)}>
+                                <i className="bi bi-file-earmark-text"></i>
+                                <i className="bi bi-download"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </>
+          )}
+
+          {/* Patients Tab */}
+          {activeTab === 'patients' && (
+            <div className="dashboard-card">
+              <div className="card-header">
+                <h3><i className="bi bi-people-fill"></i> Linked Patients</h3>
+                <div className="search-box">
+                  <i className="bi bi-search"></i>
+                  <input
+                    type="text"
+                    placeholder="Search by name or ABHA ID..."
+                    value={searchTerm}
+                    onChange={handlePatientSearch}
+                  />
+                </div>
+              </div>
+              <div className="patients-grid">
+                {filteredPatients.map((patient) => (
+                  <div key={patient.id} className="patient-card-grid">
+                    <div className="patient-card-header">
+                      <div className="patient-avatar">
+                        <i className="bi bi-person-fill"></i>
+                      </div>
+                      <div className="patient-info">
+                        <h4>{patient.name}</h4>
+                        <p className="patient-meta">{patient.gender}, {patient.age} yrs • {patient.bloodGroup}</p>
+                      </div>
+                    </div>
+                    <div className="patient-card-body">
+                      <div className="info-row">
+                        <span className="info-label">ABHA ID:</span>
+                        <span className="info-value">{patient.abhaId}</span>
+                      </div>
+                      <div className="info-row">
+                        <span className="info-label">Last Visit:</span>
+                        <span className="info-value">{new Date(patient.lastVisit).toLocaleDateString()}</span>
+                      </div>
+                      <div className="info-row">
+                        <span className="info-label">Condition:</span>
+                        <span className="tag-blue">{patient.condition}</span>
+                      </div>
+                    </div>
+                    <button className="view-patient-btn" onClick={() => handleSelectPatient(patient)}>
+                      View Details
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Consultations Tab */}
+          {activeTab === 'consultations' && (
+            <div className="dashboard-card">
+              <div className="card-header">
+                <h3><i className="bi bi-clipboard-pulse"></i> All Consultations</h3>
+                <button className="primary-btn">
+                  <i className="bi bi-plus-circle-fill"></i>
+                  New Consultation
+                </button>
+              </div>
+              <div className="records-table">
+                {recentConsultations.map((consultation) => (
+                  <div key={consultation.id} className="record-row">
+                    <div className="record-icon">
+                      <i className="bi bi-clipboard-pulse"></i>
+                    </div>
+                    <div className="record-info">
+                      <p className="record-title">{consultation.patientName}</p>
+                      <p className="record-meta">{consultation.type} • {new Date(consultation.date).toLocaleDateString()} at {consultation.time}</p>
+                      <p className="record-prescription">
+                        <strong>Diagnosis:</strong> {consultation.diagnosis}<br />
+                        <strong>Prescription:</strong> {consultation.prescription}
+                      </p>
+                    </div>
+                    <div className="record-actions">
+                      <button className="record-action-btn" onClick={() => alert('View consultation details')}>
+                        <i className="bi bi-eye-fill"></i>
+                      </button>
+                      <button className="record-action-btn" onClick={() => alert('Download report')}>
+                        <i className="bi bi-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Patient Search Tab */}
+          {activeTab === 'search' && (
+            <div className="dashboard-card">
+              <div className="card-header">
+                <h3><i className="bi bi-search"></i> Patient Search</h3>
+              </div>
+              <div className="search-section">
+                <div className="search-box-large">
+                  <i className="bi bi-search"></i>
+                  <input
+                    type="text"
+                    placeholder="Enter patient name, ABHA ID, or phone number..."
+                    className="search-input-large"
+                  />
+                  <button className="search-btn">Search</button>
+                </div>
+                <div className="or-divider">
+                  <span>OR</span>
+                </div>
+                <button className="qr-scan-btn" onClick={() => alert('QR Scanner - Coming Soon!\n\nThis will open camera to scan patient QR code.')}>
+                  <i className="bi bi-qr-code-scan"></i>
+                  <span>Scan Patient QR Code</span>
+                </button>
+              </div>
+              <div className="coming-soon">
+                <i className="bi bi-search" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                <h3>Patient Search</h3>
+                <p>Search for patients by ABHA ID, name, or scan their QR code to access medical records.</p>
+              </div>
+            </div>
+          )}
+
+          {/* Profile Tab */}
+          {activeTab === 'profile' && (
+            <div className="profile-content">
+              <div className="profile-header">
+                <div className="profile-avatar-large">
+                  <i className="bi bi-person-fill"></i>
+                </div>
+                <div className="profile-header-info">
+                  <h2>{doctorInfo.name}</h2>
+                  <p className="profile-subtitle">{doctorInfo.specialization}</p>
+                  <div className="profile-badges">
+                    <span className="badge-success"><i className="bi bi-patch-check-fill"></i> Verified</span>
+                    <span className="badge-info"><i className="bi bi-hospital-fill"></i> {doctorInfo.hospital}</span>
+                  </div>
+                </div>
+                <button className="edit-profile-btn">
+                  <i className="bi bi-pencil-fill"></i>
+                  Edit Profile
+                </button>
+              </div>
+
+              <div className="profile-grid">
+                <div className="dashboard-card">
+                  <div className="card-header">
+                    <h3><i className="bi bi-person-vcard"></i> Professional Information</h3>
+                  </div>
+                  <div className="info-grid">
+                    <div className="info-item">
+                      <span className="info-label">ABHA ID</span>
+                      <span className="info-value">{doctorInfo.abhaId}</span>
+                    </div>
+                    <div className="info-item">
+                      <span className="info-label">Specialization</span>
+                      <span className="info-value">{doctorInfo.specialization}</span>
+                    </div>
+                    <div className="info-item">
+                      <span className="info-label">Hospital</span>
+                      <span className="info-value">{doctorInfo.hospital}</span>
+                    </div>
+                    <div className="info-item">
+                      <span className="info-label">Experience</span>
+                      <span className="info-value">{doctorInfo.experience}</span>
+                    </div>
+                    <div className="info-item">
+                      <span className="info-label">Phone</span>
+                      <span className="info-value">{doctorInfo.phone}</span>
+                    </div>
+                    <div className="info-item">
+                      <span className="info-label">Email</span>
+                      <span className="info-value">{doctorInfo.email}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="dashboard-card">
+                  <div className="card-header">
+                    <h3><i className="bi bi-graph-up-arrow"></i> Statistics</h3>
+                  </div>
+                  <div className="stats-list">
+                    <div className="stat-item">
+                      <i className="bi bi-people-fill"></i>
+                      <div>
+                        <p className="stat-value">{doctorInfo.patients}</p>
+                        <p className="stat-label">Total Patients</p>
+                      </div>
+                    </div>
+                    <div className="stat-item">
+                      <i className="bi bi-clipboard-check-fill"></i>
+                      <div>
+                        <p className="stat-value">1,234</p>
+                        <p className="stat-label">Consultations</p>
+                      </div>
+                    </div>
+                    <div className="stat-item">
+                      <i className="bi bi-star-fill"></i>
+                      <div>
+                        <p className="stat-value">4.8</p>
+                        <p className="stat-label">Rating</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Patient Details Tab */}
+          {activeTab === 'patient-details' && selectedPatient && (
+            <div className="dashboard-card">
+              <div className="card-header">
+                <button className="back-btn" onClick={() => setActiveTab('patients')}>
+                  <i className="bi bi-arrow-left"></i>
+                  Back to Patients
+                </button>
+              </div>
+              <div className="patient-details-view">
+                <div className="patient-details-header">
+                  <div className="patient-avatar-large">
+                    <i className="bi bi-person-fill"></i>
+                  </div>
+                  <div>
+                    <h2>{selectedPatient.name}</h2>
+                    <p className="patient-meta">{selectedPatient.gender}, {selectedPatient.age} years • Blood Group: {selectedPatient.bloodGroup}</p>
+                    <p className="patient-abha">ABHA ID: {selectedPatient.abhaId}</p>
+                  </div>
+                </div>
+                <div className="coming-soon" style={{marginTop: '40px'}}>
+                  <i className="bi bi-file-medical" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                  <h3>Patient Medical Records</h3>
+                  <p>View complete medical history, prescriptions, lab reports, and vitals for {selectedPatient.name}.</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Settings Tab */}
+          {activeTab === 'settings' && (
+            <div className="dashboard-card">
+              <div className="card-header">
+                <h3><i className="bi bi-gear-fill"></i> Settings</h3>
+              </div>
+              <div className="coming-soon">
+                <i className="bi bi-gear-fill" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                <h3>Settings</h3>
+                <p>Manage your account preferences, notifications, and privacy settings.</p>
+              </div>
+            </div>
+          )}
         </div>
-
-        {/* Right Column */}
-        <div className="right-column">
-          <h2>Analytics & Trends</h2>
-
-          {/* Blood Pressure Chart */}
-          <div className="chart-card">
-            <div className="chart-header">
-              <h3>Blood Pressure</h3>
-              <div className="chart-filters">
-                <button 
-                  className={`filter-btn ${activeFilter === '6M' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('6M')}
-                >
-                  6M
-                </button>
-                <button 
-                  className={`filter-btn ${activeFilter === '1Y' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('1Y')}
-                >
-                  1Y
-                </button>
-                <button 
-                  className={`filter-btn ${activeFilter === 'All' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('All')}
-                >
-                  All
-                </button>
-              </div>
-            </div>
-            <div className="chart-legend">
-              <span className="legend-item systolic">Systolic (in mmHg)</span>
-              <span className="legend-item diastolic">Diastolic (in mmHg)</span>
-            </div>
-            <div className="chart-container">
-              <svg viewBox="0 0 400 200" className="chart-svg">
-                <polyline
-                  points="10,120 60,100 110,90 160,95 210,85 260,75 310,80 360,70"
-                  fill="none"
-                  stroke="#DC2626"
-                  strokeWidth="2"
-                />
-                <polyline
-                  points="10,160 60,150 110,140 160,145 210,135 260,130 310,132 360,125"
-                  fill="none"
-                  stroke="#3B82F6"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
-          </div>
-
-          {/* Blood Sugar Chart */}
-          <div className="chart-card">
-            <div className="chart-header">
-              <h3>Blood Sugar (HbA1c)</h3>
-              <div className="chart-filters">
-                <button 
-                  className={`filter-btn ${activeFilter === '6M' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('6M')}
-                >
-                  6M
-                </button>
-                <button 
-                  className={`filter-btn ${activeFilter === '1Y' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('1Y')}
-                >
-                  1Y
-                </button>
-                <button 
-                  className={`filter-btn ${activeFilter === 'All' ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('All')}
-                >
-                  All
-                </button>
-              </div>
-            </div>
-            <div className="chart-info">
-              <span className="chart-label">HbA1c levels in % of target range</span>
-            </div>
-            <div className="chart-container">
-              <svg viewBox="0 0 400 200" className="chart-svg">
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#DC2626" stopOpacity="0.3"/>
-                    <stop offset="100%" stopColor="#DC2626" stopOpacity="0.05"/>
-                  </linearGradient>
-                </defs>
-                <polyline
-                  points="10,180 60,165 110,150 160,140 210,125 260,110 310,95 360,80"
-                  fill="url(#gradient)"
-                  stroke="#DC2626"
-                  strokeWidth="2"
-                />
-              </svg>
-              <div className="trend-value">
-                <span className="trend-number">5.2</span>
-                <span className="trend-label">Current A1C %</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }

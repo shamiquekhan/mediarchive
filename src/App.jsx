@@ -1,30 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import PatientDashboard from './components/PatientDashboard';
 import DoctorDashboard from './components/DoctorDashboard';
 import './App.css';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-
-  const handleLogin = (userType) => {
-    setCurrentUser(userType);
-  };
-
-  const handleLogout = () => {
-    setCurrentUser(null);
-  };
-
   return (
-    <div className="App">
-      {!currentUser ? (
-        <LoginPage onLogin={handleLogin} />
-      ) : currentUser === 'patient' ? (
-        <PatientDashboard onLogout={handleLogout} />
-      ) : (
-        <DoctorDashboard onLogout={handleLogout} />
-      )}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login/patient" element={<LoginPage userType="patient" />} />
+          <Route path="/login/doctor" element={<LoginPage userType="doctor" />} />
+          <Route path="/patient/dashboard" element={<PatientDashboard />} />
+          <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
