@@ -1,13 +1,12 @@
 # MediArchive - Digital Health Records Platform
 
 <div align="center">
-  <img src="public/favicon.svg" alt="MediArchive Logo" width="100"/>
   
   ### One Digital Health Record for Everyone, Accessible Everywhere
   
-  *India's unified health data system linking patients, doctors, and hospitals through a single, secure digital health ID.*
+  *India's unified health data system linking patients, doctors, and hospitals through secure Health ID (ABHA) and HPR ID.*
 
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-2D8A99?style=for-the-badge)](https://mediarchive.vercel.app)
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-2A6F28?style=for-the-badge)](https://mediarchive.vercel.app)
   [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
   [![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
@@ -17,17 +16,14 @@
 
 ## 📸 Screenshots
 
-### Login Page
-![Login Page](screenshots/login-page.png)
-* Login with role-based authentication*
+### Homepage - Swiss Minimalism Design
+*Clean, professional landing page with massive typography and rigorous grid systems*
 
 ### Patient Dashboard
-![Patient Dashboard](screenshots/patient-dashboard.png)
-*Complete medical history with real-time search and health information*
+*Health metrics, appointments, medications, and care team - everything that matters*
 
 ### Doctor Dashboard
-![Doctor Dashboard](screenshots/doctor-dashboard.png)
-*Analytics & trends with patient management and medical history tracking*
+*Single doctor practice focused - patient management, appointments, and medical records*
 
 ---
 
@@ -35,30 +31,48 @@
 
 ### 🔐 Authentication System
 - **Dual Role Login**: Separate authentication for patients and doctors
-- **Health ID Integration**: Support for Aadhaar-based Health ID
+- **ABHA ID Integration**: Health ID / ABHA ID for patients (Ayushman Bharat Health Account)
+- **HPR ID Support**: Doctor ID / HPR ID for healthcare professionals (Health Professional Registry)
 - **Secure Access**: Role-based access control
 
 ### 👤 Patient Portal
-- **Medical History**: Complete medical records with search functionality
-- **Health Alerts**: Important chronic conditions and allergies display
-- **Profile Management**: View and manage health information
-- **Document Access**: View, download, and access X-ray reports
-- **Responsive Search**: Real-time filtering across all medical records
+- **Health Metrics Dashboard**: 
+  - Next appointment tracking with doctor details
+  - Medications due today with reminders
+  - Blood pressure, blood sugar, heart rate monitoring
+  - Care team overview (specialists)
+- **Medical Records**: Complete history with search functionality
+- **Recent Tests**: List view with download/view options (CBC, Lipid Profile, HbA1c, etc.)
+- **Health Alerts**: Critical allergies and chronic conditions prominently displayed
+- **Medications Management**: Active prescriptions with dosage and frequency
+- **Profile Management**: Personal stats (age, height, weight, blood type)
+- **Document Access**: View and download medical reports
 
 ### 👨‍⚕️ Doctor Dashboard
+- **Single Doctor Practice Focus**:
+  - My Patients (156 active patients)
+  - Today's Appointments (8 scheduled)
+  - Pending Reviews (12 items)
+  - Years of Experience tracker
 - **Patient Search**: Quick patient lookup and information access
 - **Medical History Timeline**: Chronological patient medical records
-- **Analytics & Trends**: Visual charts for blood pressure and blood sugar
-- **Vital Signs Monitoring**: Real-time patient vital statistics
-- **Add Medical Entries**: Create new medical records and prescriptions
+- **Patient Management**: Tabular view with filtering
+- **Vital Signs Monitoring**: Real-time patient statistics
 - **Notifications**: Stay updated with patient alerts
 
-### 🎨 Design & UX
-- **Scandinavian Minimalism**: Clean, functional, and aesthetic design
-- **SVG Icons**: Custom minimalist icons throughout
+### 🎨 Design & UX - Swiss Minimalism
+- **Rigorous Grid Systems**: 1px separator grids throughout
+- **Massive Typography**: 56-96px bold headlines, uppercase titles
+- **Sharp Corners**: border-radius: 0 everywhere
+- **Monochrome Palette**: #051914 primary, #FFFFFF white, #FAFAFA backgrounds
+- **Dual Accent System**: 
+  - Dark green (#2A6F28) on light backgrounds
+  - Light green (#78C51C) on dark backgrounds
+- **Generous Whitespace**: Clean, breathable layouts
+- **No Shadows/Transforms**: Flat, static design
+- **Inset Border Hovers**: Subtle interactive states
 - **Responsive Layout**: Mobile, tablet, and desktop optimized
-- **Interactive Elements**: 75+ interactive features with smooth animations
-- **Accessibility**: WCAG compliant with semantic HTML
+- **Accessibility**: Semantic HTML and keyboard navigation
 
 ---
 
@@ -202,27 +216,53 @@ vercel --prod
 
 ## 🎨 Design System
 
+### Swiss Minimalism Principles
+- **Rigorous Grid Systems**: 1px separator grids with rgba(5, 25, 20, 0.1) backgrounds
+- **Massive Typography**: 56-96px hero titles, 48-72px section headers, 900 font weight
+- **Sharp Geometry**: border-radius: 0 throughout, no rounded corners
+- **Asymmetric Layouts**: Magazine-style content blocks
+- **Generous Whitespace**: 64-160px padding for breathing room
+
 ### Color Palette
-- **Primary Green**: `#9BCB9A` → `#6AAA7C` (Gradient)
-- **Accent Teal**: `#2D8A99`
-- **Success**: `#10B981`
-- **Warning**: `#F59E0B`
-- **Danger**: `#DC2626`
-- **Info**: `#3B82F6`
+- **Primary Dark**: `#051914` - Main text and dark backgrounds
+- **Accent Dark**: `#2A6F28` - Buttons, highlights on light backgrounds
+- **Accent Light**: `#78C51C` - Icons, active states on dark backgrounds
+- **White**: `#FFFFFF` - Card backgrounds
+- **Light Gray**: `#FAFAFA` - Page backgrounds
+- **Border**: `rgba(5, 25, 20, 0.1)` - 1px separators
 
 ### Typography
-- **Font Family**: System fonts (-apple-system, BlinkMacSystemFont, "Segoe UI")
-- **Headings**: 700 weight
-- **Body**: 400-600 weight
+- **Font Family**: Inter, Segoe UI, system fonts
+- **Headings**: 900 weight, uppercase, -0.03em to -0.04em letter-spacing
+- **Labels**: 11px, uppercase, 600 weight, 1.5px letter-spacing
+- **Body**: 13-15px, 400-600 weight
+
+### Interactive States
+- **Hover**: Inset borders (box-shadow: inset 0 0 0 1-2px accent-color)
+- **No Transforms**: transform: none (no movement, scale, or rotation)
+- **No Shadows**: box-shadow: none (except inset borders)
+- **Static**: Clean, flat design without decorative effects
 
 ### Icons
-- Custom SVG icons with 1.5px stroke width
-- Consistent geometric shapes
-- No fills, outline-only style
+- Bootstrap Icons library
+- Consistent sizing (24-48px)
+- Solid fills for visual weight
+- Color-coded by function (accent green for primary actions)
 
 ---
 
-## 🤝 Contributing
+## 🎯 Key Highlights
+
+- ✅ **Swiss Minimalism Design** - Complete transformation with rigorous grids and massive typography
+- ✅ **ABHA & HPR Integration** - Support for India's digital health IDs
+- ✅ **Practical Health Metrics** - Appointments, medications, care team (not just vitals)
+- ✅ **Single Doctor Practice** - Focused on individual practitioners, not hospitals
+- ✅ **Zero Compilation Errors** - Production-ready codebase
+- ✅ **Fully Responsive** - Mobile-first design with adaptive grids
+- ✅ **Fast Performance** - Optimized React components
+- ✅ **Clean Codebase** - Consistent styling with CSS variables
+
+---
 
 Contributions are welcome! Please follow these steps:
 

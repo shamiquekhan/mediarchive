@@ -29,67 +29,73 @@ export default function PatientDashboard() {
     state: 'Karnataka'
   };
 
-  // Health Vitals Data
+  // Health Vitals - Essential Patient Metrics
   const healthVitals = [
     {
       id: 1,
-      name: 'Temperature',
-      value: '98.57',
-      unit: '°F',
-      status: 'normal',
-      change: '+0.08%',
-      icon: 'bi-thermometer-half',
-      color: '#C8FF00'
+      name: 'Next Appointment',
+      value: 'Feb 15',
+      subtitle: 'Dr. Sarah Johnson',
+      detail: '10:30 AM · Cardiology',
+      status: 'upcoming',
+      icon: 'bi-calendar-check-fill',
+      color: '#2A6F28',
+      actionLabel: 'Reschedule'
     },
     {
       id: 2,
-      name: 'Blood Sugar',
-      value: '120',
-      unit: 'mg/dL',
-      status: 'normal',
-      change: '+0.8%',
-      icon: 'bi-droplet-fill',
-      color: '#C8FF00'
+      name: 'Medications Due',
+      value: '3',
+      subtitle: 'Today',
+      detail: 'Lisinopril, Metformin, Aspirin',
+      status: 'pending',
+      icon: 'bi-capsule-pill',
+      color: '#2A6F28',
+      actionLabel: 'View All'
     },
     {
       id: 3,
       name: 'Blood Pressure',
       value: '120/80',
-      unit: 'mmHg',
+      subtitle: 'Last Reading',
+      detail: 'Feb 8, 2026 · Normal Range',
       status: 'normal',
-      change: '+0.6%',
       icon: 'bi-activity',
-      color: '#C8FF00'
+      color: '#2A6F28',
+      actionLabel: 'Track'
     },
     {
       id: 4,
-      name: 'Heart Rate',
-      value: '89',
-      unit: 'bpm',
+      name: 'Blood Sugar',
+      value: '120',
+      subtitle: 'mg/dL',
+      detail: 'Feb 8, 2026 · Optimal Level',
       status: 'normal',
-      change: '+0.2% from last week',
-      icon: 'bi-heart-pulse-fill',
-      color: '#60A5FA'
+      icon: 'bi-droplet-fill',
+      color: '#2A6F28',
+      actionLabel: 'Track'
     },
     {
       id: 5,
-      name: 'Oxygen',
-      value: '97.5',
-      unit: '%',
-      status: 'excellent',
-      change: '+0.2% from last week',
-      icon: 'bi-lungs-fill',
-      color: '#60A5FA'
+      name: 'Heart Rate',
+      value: '89',
+      subtitle: 'bpm',
+      detail: 'Feb 8, 2026 · Healthy',
+      status: 'normal',
+      icon: 'bi-heart-pulse-fill',
+      color: '#2A6F28',
+      actionLabel: 'Track'
     },
     {
       id: 6,
-      name: 'Wellness',
-      value: '19,365',
-      unit: 'KCAL Today',
-      status: 'normal',
-      change: '+0.3%',
-      icon: 'bi-lightning-charge-fill',
-      color: '#C8FF00'
+      name: 'Care Team',
+      value: '4',
+      subtitle: 'Specialists',
+      detail: 'Cardiology, Endocrinology, Primary',
+      status: 'active',
+      icon: 'bi-people-fill',
+      color: '#2A6F28',
+      actionLabel: 'View Team'
     }
   ];
 
@@ -97,31 +103,39 @@ export default function PatientDashboard() {
   const recentTests = [
     {
       id: 1,
-      name: 'Heart Rate',
-      period: 'Hourly',
-      status: 'normal',
-      icon: 'bi-heart-pulse'
+      name: 'Complete Blood Count (CBC)',
+      date: 'Feb 5, 2026',
+      lab: 'Apollo Diagnostics',
+      result: 'Normal',
+      status: 'completed',
+      icon: 'bi-droplet-fill'
     },
     {
       id: 2,
-      name: 'Blood Cells',
-      period: 'Monthly',
-      status: 'normal',
-      icon: 'bi-droplet'
+      name: 'Lipid Profile',
+      date: 'Feb 3, 2026',
+      lab: 'PathLab',
+      result: 'Normal',
+      status: 'completed',
+      icon: 'bi-heart-pulse'
     },
     {
       id: 3,
-      name: 'Sleep Patterns',
-      period: 'Daily',
-      status: 'good',
-      icon: 'bi-moon-stars'
+      name: 'Thyroid Function Test',
+      date: 'Jan 28, 2026',
+      lab: 'SRL Diagnostics',
+      result: 'Normal',
+      status: 'completed',
+      icon: 'bi-activity'
     },
     {
       id: 4,
-      name: 'Weight Balance',
-      period: 'Weekly',
-      status: 'normal',
-      icon: 'bi-graph-up'
+      name: 'Kidney Function Test',
+      date: 'Jan 20, 2026',
+      lab: 'Apollo Diagnostics',
+      result: 'Normal',
+      status: 'completed',
+      icon: 'bi-clipboard-pulse'
     }
   ];
 
@@ -371,77 +385,56 @@ export default function PatientDashboard() {
             <div className="personal-stats">
               <div className="stat-box">
                 <div className="stat-icon"><i className="bi bi-calendar3"></i></div>
-                <div>
-                  <p className="stat-label">Age</p>
-                  <h3 className="stat-value">{patientInfo.age} years</h3>
-                </div>
+                <p className="stat-label">Age</p>
+                <h3 className="stat-value">{patientInfo.age} years</h3>
               </div>
               <div className="stat-box">
                 <div className="stat-icon"><i className="bi bi-arrows-expand"></i></div>
-                <div>
-                  <p className="stat-label">Height</p>
-                  <h3 className="stat-value">{patientInfo.height}</h3>
-                </div>
+                <p className="stat-label">Height</p>
+                <h3 className="stat-value">{patientInfo.height}</h3>
               </div>
               <div className="stat-box">
                 <div className="stat-icon"><i className="bi bi-speedometer2"></i></div>
-                <div>
-                  <p className="stat-label">Weight</p>
-                  <h3 className="stat-value">{patientInfo.weight}</h3>
-                </div>
+                <p className="stat-label">Weight</p>
+                <h3 className="stat-value">{patientInfo.weight}</h3>
               </div>
               <div className="stat-box">
                 <div className="stat-icon"><i className="bi bi-droplet-fill"></i></div>
-                <div>
-                  <p className="stat-label">Blood Type</p>
-                  <h3 className="stat-value">{patientInfo.bloodGroup}</h3>
-                </div>
+                <p className="stat-label">Blood Type</p>
+                <h3 className="stat-value">{patientInfo.bloodGroup}</h3>
               </div>
-            </div>
-
-            {/* Health Vitals Cards - Redesigned */}
-            <div className="section-header-main">
-              <h2><i className="bi bi-heart-pulse"></i> Health Vitals</h2>
-              <button className="view-all-btn">View All <i className="bi bi-arrow-right"></i></button>
-            </div>
-            <div className="vitals-grid-modern">
-              {healthVitals.map((vital) => (
-                <div key={vital.id} className="vital-card-modern">
-                  <div className="vital-icon-wrapper" style={{background: `${vital.color}15`}}>
-                    <i className={vital.icon} style={{color: vital.color}}></i>
-                  </div>
-                  <div className="vital-info-modern">
-                    <p className="vital-name-modern">{vital.name}</p>
-                    <div className="vital-value-row">
-                      <h2 className="vital-value-modern">{vital.value}</h2>
-                      <span className="vital-unit-modern">{vital.unit}</span>
-                    </div>
-                    <span className="vital-change-modern">
-                      <i className="bi bi-graph-up-arrow"></i> {vital.change}
-                    </span>
-                  </div>
-                </div>
-              ))}
             </div>
 
             {/* Recent Tests */}
             <div className="dashboard-card">
               <div className="card-header">
                 <h3><i className="bi bi-clipboard-pulse"></i> Recent Tests</h3>
-                <button className="icon-btn-small">
-                  <i className="bi bi-plus-circle-fill"></i>
+                <button className="text-btn">
+                  View All <i className="bi bi-arrow-right"></i>
                 </button>
               </div>
-              <div className="tests-grid">
+              <div className="tests-list">
                 {recentTests.map((test) => (
-                  <div key={test.id} className="test-card">
-                    <div className="test-header">
+                  <div key={test.id} className="test-item">
+                    <div className="test-icon-box">
                       <i className={test.icon}></i>
-                      <span className="test-period">{test.period}</span>
                     </div>
-                    <h4 className="test-name">{test.name}</h4>
-                    <div className="test-chart">
-                      <div className="chart-placeholder"></div>
+                    <div className="test-details">
+                      <h4 className="test-title">{test.name}</h4>
+                      <p className="test-meta">
+                        {test.date} • {test.lab}
+                      </p>
+                    </div>
+                    <div className="test-result">
+                      <span className="result-badge">{test.result}</span>
+                    </div>
+                    <div className="test-actions">
+                      <button className="icon-btn-small" title="View Report">
+                        <i className="bi bi-eye"></i>
+                      </button>
+                      <button className="icon-btn-small" title="Download">
+                        <i className="bi bi-download"></i>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -477,22 +470,21 @@ export default function PatientDashboard() {
         {/* Health Vitals Tab */}
         {activeTab === 'health' && (
           <div className="dashboard-main-content">
-            <div className="vitals-grid-full">
+            <div className="health-metrics-grid">
               {healthVitals.map((vital) => (
-                <div key={vital.id} className="vital-card-large">
-                  <div className="vital-header">
-                    <div>
-                      <p className="vital-name">{vital.name}</p>
-                      <span className="vital-change">{vital.change}</span>
-                    </div>
-                    <i className={vital.icon} style={{color: vital.color, fontSize: '32px'}}></i>
+                <div key={vital.id} className="metric-card">
+                  <div className="metric-icon-box">
+                    <i className={vital.icon}></i>
                   </div>
-                  <div className="vital-body-large">
-                    <h2 className="vital-value-large">{vital.value}<span className="vital-unit">{vital.unit}</span></h2>
-                    <div className="vital-chart">
-                      <div className="chart-placeholder-large"></div>
-                    </div>
+                  <div className="metric-content">
+                    <p className="metric-label">{vital.name}</p>
+                    <h2 className="metric-value">{vital.value}</h2>
+                    <p className="metric-subtitle">{vital.subtitle}</p>
+                    <p className="metric-detail">{vital.detail}</p>
                   </div>
+                  <button className="metric-action-btn">
+                    {vital.actionLabel} <i className="bi bi-arrow-right"></i>
+                  </button>
                 </div>
               ))}
             </div>

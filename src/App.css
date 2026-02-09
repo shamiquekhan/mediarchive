@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,104 +13,147 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Chatime', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg-light);
-  color: var(--dark-gray);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Headings and buttons use luxury display font */
+h1, h2, h3, h4, h5, h6,
+button, .btn, .btn-primary, .btn-secondary,
+.nav-cta-btn, .nav-cta-btn-secondary,
+.btn-primary-large, .btn-secondary-large {
+  font-family: var(--font-buttons);
 }
 
 :root {
-  /* Exact Color Palette from Medical UI References */
-  --primary-color: #1A1A1A;          /* Dark Background */
-  --primary-dark: #000000;
-  --primary-light: #2C2C2C;          /* Dark Card Background */
+  /* ===== READABILITY-OPTIMIZED COLOR SYSTEM ===== */
   
-  /* Lime Green Accent - Main Highlight */
-  --lime-accent: #C8FF00;            /* Bright Lime */
-  --lime-light: #E0FF66;
-  --lime-bg: #F5FFCC;                /* Very Light Lime */
-  --lime-tint: #E8F5E9;              /* Soft Green Tint */
+  /* Preferred palette */
+  --deep-ink: #051914;     /* deepest dark for contrast */
+  --forest: #2A6F28;       /* primary dark green */
+  --accent-green: #2A6F28; /* vibrant accent */
+  --mint-cream: #CDEDB3;   /* soft light */
+  --warm-cream: #FCF6EB;   /* alternate light */
   
-  /* Secondary Greens */
-  --secondary-green: #8BC34A;        /* Medium Green */
-  --success-green: #4CAF50;
-  --accent-green: #9CCC65;
+  /* ===== TEXT COLORS (High Contrast for Readability) ===== */
+  --text-primary: var(--deep-ink);
+  --text-secondary: var(--forest);
+  --text-inverse: var(--mint-cream);
+  --text-muted: var(--forest);
   
-  /* Neutral Tones */
-  --white: #FFFFFF;
-  --off-white: #F8F9FA;
-  --light-gray: #F5F5F5;
-  --gray: #E0E0E0;
-  --medium-gray: #9E9E9E;
+  /* ===== BACKGROUND COLORS ===== */
+  --bg-primary: var(--warm-cream);    /* light sections */
+  --bg-secondary: var(--mint-cream);  /* alternate light */
+  --bg-dark: var(--deep-ink);         /* dark sections */
+  --bg-accent: var(--accent-green);   /* accent blocks */
   
-  /* Alerts & Status */
-  --warning-orange: #FF9800;
-  --danger-red: #F44336;
-  --info-blue: #2196F3;
-  --water-blue: #03A9F4;
-  --calories-orange: #FF6B35;
-  --heart-red: #EF5350;
+  /* ===== INTERACTIVE ELEMENTS ===== */
+  --btn-primary-bg: var(--forest);
+  --btn-primary-text: var(--mint-cream);
+  --btn-primary-hover: var(--accent-green);
   
-  /* Text Colors */
-  --text-dark: #1A1A1A;
-  --text-gray: #666666;
-  --text-light: #999999;
-  --text-white: #FFFFFF;
+  --btn-secondary-bg: var(--mint-cream);
+  --btn-secondary-text: var(--forest);
+  --btn-secondary-hover: var(--accent-green);
   
-  /* Backgrounds */
-  --bg-white: #FFFFFF;
-  --bg-light: #F8F9FA;
-  --bg-gray: #F5F5F5;
-  --bg-dark: #1A1A1A;
-  --bg-card: #FFFFFF;
+  --link-color: var(--forest);
+  --link-hover: var(--accent-green);
   
-  /* Borders */
-  --border-color: #E0E0E0;
-  --border-light: #F0F0F0;
+  /* ===== BORDERS AND OUTLINES ===== */
+  --border-light: var(--mint-cream);
+  --border-medium: var(--forest);
+  --border-dark: var(--deep-ink);
   
-  /* Typography - Modern Medical UI */
-  --font-display: 'Inter', 'Segoe UI', sans-serif;
-  --font-heading: 'Inter', 'Segoe UI', sans-serif;
+  /* ===== LEGACY COMPATIBILITY (mapped to preferred palette) ===== */
+  --primary-color: var(--forest);
+  --primary-dark: var(--deep-ink);
+  --primary-light: var(--mint-cream);
+  --white: var(--warm-cream);
+  --bg-light: var(--warm-cream);
+  --bg-white: var(--warm-cream);
+  --bg-gray: var(--mint-cream);
+  --text-dark: var(--forest);
+  --text-gray: var(--forest);
+  --text-light: var(--mint-cream);
+  --text-white: var(--mint-cream);
+  --border-color: var(--mint-cream);
+  --border-light: var(--mint-cream);
+  
+  /* ===== TYPOGRAPHY ===== */
+  --font-display: 'Playfair Display', 'Inter', 'Segoe UI', serif;
+  --font-heading: 'Playfair Display', 'Inter', 'Segoe UI', serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
-  --font-accent: 'Inter', 'Segoe UI', sans-serif;
+  --font-buttons: 'Playfair Display', 'Inter', 'Segoe UI', serif;
+  
+  /* ===== ALERT COLORS (Using palette) ===== */
+  --success-color: var(--accent-green);
+  --warning-color: var(--accent-green);
+  --error-color: var(--deep-ink);
+  --info-color: var(--accent-green);
 }
 
 .App {
   min-height: 100vh;
 }
 
-/* Scrollbar */
+/* ===== SCROLLBAR STYLING ===== */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--border-medium);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: var(--border-dark);
 }
 
-/* Smooth transitions */
-a, button, input, select {
-  transition: all 0.3s ease;
-}
-
-/* Focus styles */
+/* ===== ACCESSIBILITY & READABILITY ===== */
 :focus-visible {
-  outline: 2px solid var(--primary-color);
+  outline: 3px solid var(--border-medium);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* High contrast focus for better visibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--border-dark);
   outline-offset: 2px;
 }
+
+/* ===== SMOOTH TRANSITIONS ===== */
+a, button, input, select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* ===== READABILITY UTILITIES ===== */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-inverse { color: var(--text-inverse); }
+.text-muted { color: var(--text-muted); }
+
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-dark { background-color: var(--bg-dark); }
+.bg-accent { background-color: var(--bg-accent); }
 

@@ -78,27 +78,6 @@ const HomePage = () => {
           <div className="hero-right">
             <div className="hero-image-card">
               <img src="/doctor-main.jpg" alt="Professional medical team" className="hero-image" />
-              <div className="floating-card card-psychologist">
-                <div className="card-avatar">
-                  <img src="/doctor.jpg" alt="Doctor" onError={(e) => e.target.style.display='none'} />
-                </div>
-                <div className="card-info">
-                  <h4>Verified Doctors</h4>
-                  <div className="card-rating">
-                    <span className="stars">★★★★★</span>
-                    <span className="rating-text">100% Secure</span>
-                  </div>
-                </div>
-                <div className="card-arrow">
-                  <i className="bi bi-arrow-right"></i>
-                </div>
-              </div>
-              <div className="floating-badges">
-                <span className="specialty-badge">ABHA Linked</span>
-                <span className="specialty-badge">QR Sharing</span>
-                <span className="specialty-badge">Cloud Storage</span>
-                <span className="specialty-badge">24/7 Access</span>
-              </div>
             </div>
           </div>
         </div>

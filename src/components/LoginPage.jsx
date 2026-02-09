@@ -76,13 +76,13 @@ export default function LoginPage({ userType }) {
 
             <form onSubmit={handleSubmit} className="login-form">
               <div className="form-group">
-                <label>{userType === 'patient' ? 'Health ID / Aadhaar' : 'Doctor ID'}</label>
+                <label>{userType === 'patient' ? 'Health ID / ABHA ID' : 'Doctor ID / HPR ID'}</label>
                 <input
                   type="text"
                   name="username"
                   value={formData.username}
                   onChange={handleChange}
-                  placeholder={userType === 'patient' ? 'Enter Health ID or Aadhaar' : 'Enter Doctor ID'}
+                  placeholder={userType === 'patient' ? 'Enter Health ID or ABHA ID' : 'Enter Doctor ID / HPR ID'}
                   required
                 />
               </div>

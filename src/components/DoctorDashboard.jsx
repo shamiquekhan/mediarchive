@@ -130,31 +130,31 @@ export default function DoctorDashboard() {
   const stats = [
     {
       icon: 'bi-people-fill',
-      label: 'Total Patients',
-      value: '1,250',
-      color: '#103713',
+      label: 'My Patients',
+      value: '156',
+      color: '#2A6F28',
       change: '+12%'
     },
     {
-      icon: 'bi-person-plus-fill',
-      label: 'New Staff',
-      value: '250',
-      color: '#628B35',
-      change: '+8%'
+      icon: 'bi-calendar-check-fill',
+      label: 'Today\'s Appointments',
+      value: '8',
+      color: '#2A6F28',
+      change: '+3'
     },
     {
-      icon: 'bi-hospital-fill',
-      label: 'Total Rooms',
-      value: '180',
-      color: '#89A65F',
-      change: '+5%'
+      icon: 'bi-clipboard-pulse',
+      label: 'Pending Reviews',
+      value: '12',
+      color: '#2A6F28',
+      change: '-2'
     },
     {
-      icon: 'bi-clipboard2-pulse-fill',
-      label: 'Total Doctors',
-      value: '120',
-      color: '#103713',
-      change: '+3%'
+      icon: 'bi-award-fill',
+      label: 'Years Experience',
+      value: '15',
+      color: '#2A6F28',
+      change: ''
     }
   ];
 
@@ -492,7 +492,7 @@ export default function DoctorDashboard() {
                 </button>
               </div>
               <div className="coming-soon">
-                <i className="bi bi-search" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                <i className="bi bi-search" style={{fontSize: '80px', color: '#CDEDB3'}}></i>
                 <h3>Patient Search</h3>
                 <p>Search for patients by ABHA ID, name, or scan their QR code to access medical records.</p>
               </div>
@@ -606,7 +606,7 @@ export default function DoctorDashboard() {
                   </div>
                 </div>
                 <div className="coming-soon" style={{marginTop: '40px'}}>
-                  <i className="bi bi-file-medical" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                  <i className="bi bi-file-medical" style={{fontSize: '80px', color: '#CDEDB3'}}></i>
                   <h3>Patient Medical Records</h3>
                   <p>View complete medical history, prescriptions, lab reports, and vitals for {selectedPatient.name}.</p>
                 </div>
@@ -621,7 +621,7 @@ export default function DoctorDashboard() {
                 <h3><i className="bi bi-gear-fill"></i> Settings</h3>
               </div>
               <div className="coming-soon">
-                <i className="bi bi-gear-fill" style={{fontSize: '80px', color: '#E2DBDO'}}></i>
+                <i className="bi bi-gear-fill" style={{fontSize: '80px', color: '#CDEDB3'}}></i>
                 <h3>Settings</h3>
                 <p>Manage your account preferences, notifications, and privacy settings.</p>
               </div>

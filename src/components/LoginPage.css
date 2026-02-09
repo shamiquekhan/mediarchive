@@ -1,42 +1,28 @@
 .login-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F5F5F7 0%, #E8F5E9 50%, #F0FFF4 100%);
+  background: #FAFAFA;
   position: relative;
   overflow: hidden;
 }
 
 .login-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(200, 255, 0, 0.15) 0%, transparent 70%);
-  pointer-events: none;
+  content: none;
 }
 
 .login-container::after {
-  content: '';
-  position: absolute;
-  bottom: -50%;
-  left: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(200, 255, 0, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+  content: none;
 }
 
 .login-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 60px;
+  padding: 32px 80px;
   position: relative;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: #FFFFFF;
+  backdrop-filter: none;
+  border-bottom: 1px solid rgba(5, 25, 20, 0.1);
 }
 
 .logo-container {
@@ -48,47 +34,51 @@
 }
 
 .logo-container:hover {
-  transform: translateY(-2px);
+  transform: none;
 }
 
 .logo-icon {
   width: 40px;
   height: 40px;
-  color: #C8FF00;
+  color: #2A6F28;
 }
 
 .logo {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1A1A1A;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #051914;
   margin: 0;
   text-shadow: none;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .about-btn {
-  background: #FFFFFF;
-  border: 2px solid #E5E5E5;
+  background: transparent;
+  border: 1px solid rgba(5, 25, 20, 0.2);
   padding: 12px 28px;
-  border-radius: 24px;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: #1A1A1A;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #051914;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .about-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(200, 255, 0, 0.3);
-  border-color: #C8FF00;
-  background: #F0FFF4;
+  transform: none;
+  box-shadow: none;
+  border-color: #2A6F28;
+  background: #2A6F28;
+  color: #FFFFFF;
 }
 
 .about-icon {
@@ -119,16 +109,17 @@
 .login-side-image {
   width: 100%;
   height: auto;
-  border-radius: 32px;
+  border-radius: 0;
   object-fit: cover;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  border: 4px solid #FFFFFF;
-  transition: all 0.4s ease;
+  box-shadow: none;
+  border: 1px solid rgba(5, 25, 20, 0.1);
+  transition: all 0.2s ease;
 }
 
 .login-side-image:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 80px rgba(200, 255, 0, 0.25);
+  transform: none;
+  box-shadow: none;
+  border-color: #2A6F28;
 }
 
 .login-form-wrapper {
@@ -141,17 +132,17 @@
 
 .login-card {
   background: #FFFFFF;
-  border-radius: 32px;
-  padding: 60px;
+  border-radius: 0;
+  padding: 80px 64px;
   width: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  border: 2px solid rgba(200, 255, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: none;
+  border: 1px solid rgba(5, 25, 20, 0.1);
+  transition: all 0.2s ease;
 }
 
 .login-card:hover {
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
-  border-color: rgba(200, 255, 0, 0.3);
+  box-shadow: none;
+  border-color: rgba(5, 25, 20, 0.2);
 }
 
 .back-btn {
@@ -171,25 +162,28 @@
 }
 
 .back-btn:hover {
-  color: #1A1A1A;
-  transform: translateX(-4px);
+  color: #2A6F28;
+  transform: none;
 }
 
 .form-title {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: #1A1A1A;
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: #051914;
   margin: 0 0 12px 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .form-subtitle {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-size: 16px;
-  color: #666666;
-  margin-bottom: 40px;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(5, 25, 20, 0.6);
+  margin-bottom: 48px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .login-form {
@@ -204,58 +198,61 @@
 .form-group label {
   display: block;
   margin-bottom: 10px;
-  color: #1A1A1A;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.3px;
+  color: #051914;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .form-group input {
   width: 100%;
   padding: 16px 20px;
-  border: 2px solid #E5E5E5;
-  border-radius: 16px;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  border: 1px solid rgba(5, 25, 20, 0.2);
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  background: #F9F9F9;
-  color: #1A1A1A;
-  transition: all 0.3s ease;
+  background: #FFFFFF;
+  color: #051914;
+  transition: all 0.2s ease;
   box-sizing: border-box;
 }
 
 .form-group input::placeholder {
-  color: #999999;
+  color: rgba(5, 25, 20, 0.4);
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #C8FF00;
-  box-shadow: 0 0 0 4px rgba(200, 255, 0, 0.15);
+  border-color: #2A6F28;
+  box-shadow: none;
   background: #FFFFFF;
 }
 
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #C8FF00 0%, #E0FF66 100%);
-  color: #1A1A1A;
+  background: #2A6F28;
+  color: #FFFFFF;
   border: none;
-  border-radius: 16px;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-size: 17px;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   margin-top: 12px;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 16px rgba(200, 255, 0, 0.3);
+  box-shadow: none;
+  text-transform: uppercase;
 }
 
 .submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(200, 255, 0, 0.4);
-  background: linear-gradient(135deg, #E0FF66 0%, #C8FF00 100%);
+  transform: none;
+  box-shadow: inset 0 0 0 2px #051914;
+  background: #2A6F28;
+  color: #FFFFFF;
 }
 
 .form-footer {
@@ -264,7 +261,7 @@
 }
 
 .form-footer a {
-  color: #666666;
+  color: #2A6F28;
   text-decoration: none;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   font-size: 15px;
@@ -273,7 +270,7 @@
 }
 
 .form-footer a:hover {
-  color: #1A1A1A;
+  color: #2A6F28;
   text-decoration: underline;
 }
 

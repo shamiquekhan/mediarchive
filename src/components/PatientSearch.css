@@ -11,13 +11,13 @@
 .search-header h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #111827;
+  color: #2A6F28;
   margin-bottom: 8px;
 }
 
 .search-subtitle {
   font-size: 14px;
-  color: #6B7280;
+  color: #2A6F28;
   margin: 0;
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   gap: 12px;
   margin-bottom: 30px;
-  border-bottom: 2px solid #E5E7EB;
+  border-bottom: 2px solid #CDEDB3;
 }
 
 .tab-btn {
@@ -35,7 +35,7 @@
   padding: 12px 24px;
   font-size: 15px;
   font-weight: 600;
-  color: #6B7280;
+  color: #2A6F28;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -50,21 +50,21 @@
 }
 
 .tab-btn:hover {
-  color: #628B35;
+  color: #2A6F28;
 }
 
 .tab-btn.active {
-  color: #628B35;
-  border-bottom-color: #628B35;
+  color: #2A6F28;
+  border-bottom-color: #2A6F28;
 }
 
 .search-content,
 .qr-content {
   background: white;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 30px;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #CDEDB3;
+  box-shadow: none;
 }
 
 .search-form {
@@ -83,32 +83,32 @@
   left: 16px;
   width: 20px;
   height: 20px;
-  color: #9CA3AF;
+  color: #2A6F28;
   pointer-events: none;
 }
 
 .search-input {
   flex: 1;
   padding: 14px 16px 14px 48px;
-  border: 2px solid #E5E7EB;
-  border-radius: 8px;
+  border: 2px solid #CDEDB3;
+  border-radius: 0;
   font-size: 15px;
-  color: #111827;
+  color: #2A6F28;
   transition: all 0.2s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #628B35;
-  box-shadow: 0 0 0 3px rgba(98, 139, 53, 0.1);
+  border-color: #2A6F28;
+  box-shadow: none;
 }
 
 .search-btn {
   padding: 14px 32px;
-  background: #628B35;
-  color: white;
+  background: #2A6F28;
+  color: #CDEDB3;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -116,15 +116,15 @@
 }
 
 .search-btn:hover {
-  background: #103713;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(98, 139, 53, 0.2);
+  background: #2A6F28;
+  transform: none;
+  box-shadow: none;
 }
 
 .search-results h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #111827;
+  color: #2A6F28;
   margin-bottom: 20px;
 }
 
@@ -138,25 +138,25 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  background: #FFFDF5;
-  border: 2px solid #E5E7EB;
-  border-radius: 12px;
+  background: #CDEDB3;
+  border: 2px solid #CDEDB3;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .patient-card:hover {
-  background: white;
-  border-color: #628B35;
-  box-shadow: 0 4px 12px rgba(98, 139, 53, 0.1);
-  transform: translateX(4px);
+  background: #CDEDB3;
+  border-color: #2A6F28;
+  box-shadow: none;
+  transform: none;
 }
 
 .patient-avatar {
   width: 60px;
   height: 60px;
-  background: white;
-  border: 2px solid #E5E7EB;
+  background: #CDEDB3;
+  border: 2px solid #2A6F28;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -167,7 +167,7 @@
 .patient-avatar svg {
   width: 32px;
   height: 32px;
-  color: #6B7280;
+  color: #2A6F28;
 }
 
 .patient-info {
@@ -177,13 +177,13 @@
 .patient-info h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #111827;
+  color: #2A6F28;
   margin: 0 0 4px 0;
 }
 
 .abha-id {
   font-size: 13px;
-  color: #6B7280;
+  color: #2A6F28;
   font-family: 'Courier New', monospace;
   margin: 0 0 6px 0;
 }
@@ -193,11 +193,11 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #9CA3AF;
+  color: #2A6F28;
 }
 
 .separator {
-  color: #D1D5DB;
+  color: #CDEDB3;
 }
 
 .patient-action {
@@ -207,7 +207,7 @@
 .patient-action svg {
   width: 24px;
   height: 24px;
-  color: #628B35;
+  color: #2A6F28;
 }
 
 .no-results {
@@ -218,20 +218,20 @@
 .no-results svg {
   width: 64px;
   height: 64px;
-  color: #D1D5DB;
+  color: #CDEDB3;
   margin-bottom: 16px;
 }
 
 .no-results p {
   font-size: 16px;
   font-weight: 600;
-  color: #6B7280;
+  color: #2A6F28;
   margin-bottom: 8px;
 }
 
 .no-results span {
   font-size: 14px;
-  color: #9CA3AF;
+  color: #2A6F28;
 }
 
 .qr-content {
@@ -244,7 +244,7 @@
 .otp-section h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #111827;
+  color: #2A6F28;
   margin: 0 0 20px 0;
   display: flex;
   align-items: center;
@@ -255,36 +255,36 @@
 .otp-section h3 svg {
   width: 20px;
   height: 20px;
-  color: #628B35;
+  color: #2A6F28;
 }
 
 .qr-placeholder {
   text-align: center;
   padding: 40px 20px;
-  background: #FFFDF5;
-  border: 2px dashed #D1D5DB;
-  border-radius: 12px;
+  background: #CDEDB3;
+  border: 2px dashed #CDEDB3;
+  border-radius: 0;
 }
 
 .qr-placeholder svg {
   width: 80px;
   height: 80px;
-  color: #D1D5DB;
+  color: #CDEDB3;
   margin-bottom: 16px;
 }
 
 .qr-placeholder p {
   font-size: 15px;
-  color: #6B7280;
+  color: #2A6F28;
   margin-bottom: 20px;
 }
 
 .start-scan-btn {
   padding: 12px 24px;
-  background: #628B35;
-  color: white;
+  background: #2A6F28;
+  color: #CDEDB3;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -300,9 +300,9 @@
 }
 
 .start-scan-btn:hover {
-  background: #103713;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(98, 139, 53, 0.2);
+  background: #2A6F28;
+  transform: none;
+  box-shadow: none;
 }
 
 .qr-scanner-wrapper {
@@ -310,9 +310,9 @@
 }
 
 #qr-reader {
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
-  border: 2px solid #E5E7EB;
+  border: 2px solid #CDEDB3;
 }
 
 .stop-scan-btn {
@@ -322,7 +322,7 @@
   background: #DC2626;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -347,7 +347,7 @@
   padding: 40px 20px;
   background: #ECFDF5;
   border: 2px solid #6BBE8B;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .qr-success svg {
@@ -369,7 +369,7 @@
   padding: 12px;
   background: white;
   border: 1px solid #6BBE8B;
-  border-radius: 8px;
+  border-radius: 0;
   font-family: 'Courier New', monospace;
   font-size: 13px;
   color: #065F46;
@@ -387,30 +387,30 @@
 .otp-input {
   width: 100%;
   padding: 16px;
-  border: 2px solid #E5E7EB;
-  border-radius: 8px;
+  border: 2px solid #CDEDB3;
+  border-radius: 0;
   font-size: 24px;
   font-weight: 600;
   text-align: center;
   letter-spacing: 8px;
   font-family: 'Courier New', monospace;
-  color: #111827;
+  color: #2A6F28;
   transition: all 0.2s;
 }
 
 .otp-input:focus {
   outline: none;
-  border-color: #628B35;
-  box-shadow: 0 0 0 3px rgba(98, 139, 53, 0.1);
+  border-color: #2A6F28;
+  box-shadow: none;
 }
 
 .verify-btn {
   width: 100%;
   padding: 14px 24px;
-  background: #628B35;
-  color: white;
+  background: #2A6F28;
+  color: #CDEDB3;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -427,13 +427,13 @@
 }
 
 .verify-btn:hover:not(:disabled) {
-  background: #103713;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(98, 139, 53, 0.2);
+  background: #2A6F28;
+  transform: none;
+  box-shadow: none;
 }
 
 .verify-btn:disabled {
-  background: #D1D5DB;
+  background: #CDEDB3;
   cursor: not-allowed;
 }
 
@@ -444,7 +444,7 @@
   padding: 16px;
   background: #FEF3C7;
   border: 1px solid #FDE047;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .otp-info svg {
