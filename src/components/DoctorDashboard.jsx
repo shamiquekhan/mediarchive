@@ -15,12 +15,12 @@ export default function DoctorDashboard() {
 
   // Doctor Information
   const doctorInfo = {
-    name: 'Dr. Anjali Rao',
+    name: 'Dr. Suryavi Budhwar',
     specialization: 'Cardiologist',
     hospital: 'Apollo Hospitals, Mumbai',
     abhaId: '78-9012-3456-7890',
     phone: '+91 98765 43210',
-    email: 'anjali.rao@apollohospitals.com',
+    email: 'suryavi.budhwar@apollohospitals.com',
     experience: '15 years',
     patients: 348,
     consultationsToday: 12
@@ -56,9 +56,9 @@ export default function DoctorDashboard() {
     },
     {
       id: 3,
-      name: 'Rajesh Kumar',
+      name: 'Shamique Khan',
       abhaId: '12-3456-7890-9012',
-      age: 58,
+      age: 20,
       gender: 'Male',
       bloodGroup: 'B+',
       lastVisit: '28-01-2026',
@@ -117,7 +117,7 @@ export default function DoctorDashboard() {
     },
     {
       id: 3,
-      patientName: 'Rajesh Kumar',
+      patientName: 'Shamique Khan',
       date: '2024-02-28',
       time: '11:15 AM',
       type: 'Emergency Consultation',

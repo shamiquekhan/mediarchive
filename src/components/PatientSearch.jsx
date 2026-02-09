@@ -29,9 +29,9 @@ export default function PatientSearch({ onPatientSelect }) {
     },
     {
       id: 3,
-      name: 'Rajesh Kumar',
+      name: 'Shamique Khan',
       abhaId: '12-3456-7890-9101',
-      age: 58,
+      age: 20,
       gender: 'Male',
       lastVisit: '22 Jul 2023'
     }

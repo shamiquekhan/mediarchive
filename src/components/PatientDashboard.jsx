@@ -13,17 +13,17 @@ export default function PatientDashboard() {
   };
 
   const patientInfo = {
-    name: 'Rajesh Kumar',
+    name: 'Shamique Khan',
     healthId: 'HLTH001',
     abhaId: '12-3456-7890-1234',
     aadhaar: '1234-5678-9012',
-    age: 45,
-    ageDisplay: '45 years',
+    age: 20,
+    ageDisplay: '20 years',
     gender: 'Male',
     bloodGroup: 'O+',
     height: '175 cm',
-    weight: '78 kg',
-    email: 'rajesh.kumar@email.com',
+    weight: '65 kg',
+    email: 'shamique.khan@email.com',
     phone: '+91 98765 43210',
     city: 'Bangalore',
     state: 'Karnataka'
@@ -35,7 +35,7 @@ export default function PatientDashboard() {
       id: 1,
       name: 'Next Appointment',
       value: 'Feb 15',
-      subtitle: 'Dr. Sarah Johnson',
+      subtitle: 'Dr. Suryavi Budhwar',
       detail: '10:30 AM · Cardiology',
       status: 'upcoming',
       icon: 'bi-calendar-check-fill',
