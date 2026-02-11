@@ -1602,16 +1602,17 @@
   }
 
   .dashboard-topbar h1 {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.1;
     word-break: break-word;
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .greeting {
-    font-size: 7px;
+    font-size: 6px;
     margin-bottom: 2px;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
 
   .topbar-subtitle {
@@ -1675,19 +1676,19 @@
 
 @media (max-width: 640px) {
   .dashboard-topbar {
-    padding: 12px 16px;
-    gap: 8px;
+    padding: 10px 14px;
+    gap: 6px;
   }
 
   .dashboard-topbar h1 {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: -0.01em;
-    line-height: 1.1;
+    line-height: 1.15;
     font-weight: 700;
   }
 
   .greeting {
-    font-size: 6px;
+    font-size: 5px;
     margin-bottom: 2px;
     letter-spacing: 0.5px;
   }
@@ -1783,6 +1784,19 @@
 
   .record-card-modern {
     padding: 20px 16px;
+  }
+
+  .med-info-full h4 {
+    font-size: 15px;
+  }
+
+  .med-info-full .dosage {
+    font-size: 13px;
+  }
+
+  .med-info-full .frequency,
+  .med-info-full .time {
+    font-size: 11px;
   }
 
   .record-action-btn {
@@ -1921,13 +1935,14 @@
 /* Extra small screens optimization */
 @media (max-width: 375px) {
   .dashboard-topbar {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 
   .dashboard-topbar h1 {
-    font-size: 11px;
-    line-height: 1.1;
+    font-size: 9px;
+    line-height: 1.2;
     font-weight: 700;
+    letter-spacing: 0;
   }
 
   .mobile-menu-toggle {
@@ -1952,15 +1967,15 @@
   }
 
   .section-header-main h2 {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .stat-value {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .stat-label {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .stat-icon {
@@ -1970,42 +1985,42 @@
   }
 
   .vital-value-modern {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .vital-name-modern {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .date-day {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .date-month {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .appointment-details h4 {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .appointment-details .specialization,
   .appointment-time,
   .appointment-location {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .med-info-full h4 {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .med-info-full .dosage {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .med-info-full .frequency,
   .med-info-full .time {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .record-card-modern,
@@ -2018,8 +2033,8 @@
 
   .btn-primary,
   .record-action-btn {
-    padding: 8px 10px;
-    font-size: 10px;
+    padding: 7px 9px;
+    font-size: 9px;
   }
 }
 
@@ -2660,13 +2675,13 @@
 
 @media (max-width: 968px) {
   .section-header-main h2 {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 640px) {
   .section-header-main h2 {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .section-header-main {
