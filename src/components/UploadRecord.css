@@ -322,30 +322,97 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .upload-record {
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .upload-form {
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 640px) {
+  .upload-record {
+    padding: 16px;
+  }
+
+  .upload-header h2 {
+    font-size: 22px;
+  }
+
+  .upload-form {
+    padding: 20px 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
   .file-drop-zone {
-    padding: 30px 15px;
+    padding: 24px 12px;
+    min-height: 180px;
+  }
+
+  .file-drop-zone svg {
+    width: 40px;
+    height: 40px;
   }
 
   .form-actions {
     flex-direction: column-reverse;
+    gap: 12px;
   }
 
   .cancel-btn,
   .submit-btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .uploaded-file {
+    padding: 12px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  .upload-record {
+    padding: 12px;
+  }
+
+  .upload-header h2 {
+    font-size: 20px;
+  }
+
+  .upload-form {
+    padding: 16px 12px;
+  }
+
+  .form-field label {
+    font-size: 13px;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .file-drop-zone {
+    padding: 20px 10px;
+    min-height: 160px;
+  }
+
+  .cancel-btn,
+  .submit-btn {
+    padding: 10px 16px;
+    font-size: 13px;
   }
 }

@@ -5,6 +5,7 @@ import './HomePage.css';
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -27,9 +28,22 @@ const HomePage = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const closeOnResize = () => {
+      if (window.innerWidth > 960 && isNavOpen) {
+        setIsNavOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', closeOnResize);
+    return () => window.removeEventListener('resize', closeOnResize);
+  }, [isNavOpen]);
+
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+  const closeNav = () => setIsNavOpen(false);
 
   return (
     <div className="homepage">
@@ -40,6 +54,16 @@ const HomePage = () => {
             <i className="bi bi-heart-pulse-fill logo-icon"></i>
             <span className="logo-text">MediArchive</span>
           </a>
+          <button
+            className={`nav-toggle ${isNavOpen ? 'open' : ''}`}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isNavOpen}
+            onClick={() => setIsNavOpen(!isNavOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <div className="nav-links">
             <a href="#vision">Vision</a>
             <a href="#services">Services</a>
@@ -49,6 +73,18 @@ const HomePage = () => {
           <div className="nav-actions">
             <Link to="/login/patient" className="nav-cta-btn">Patient Login</Link>
             <Link to="/login/doctor" className="nav-cta-btn-secondary">Doctor Login</Link>
+          </div>
+        </div>
+        <div className={`nav-mobile-panel ${isNavOpen ? 'show' : ''}`}>
+          <div className="nav-mobile-links">
+            <a href="#vision" onClick={closeNav}>Vision</a>
+            <a href="#services" onClick={closeNav}>Services</a>
+            <a href="#how-it-works" onClick={closeNav}>How It Works</a>
+            <a href="#faq" onClick={closeNav}>FAQ</a>
+          </div>
+          <div className="nav-mobile-actions">
+            <Link to="/login/patient" className="nav-cta-btn" onClick={closeNav}>Patient Login</Link>
+            <Link to="/login/doctor" className="nav-cta-btn-secondary" onClick={closeNav}>Doctor Login</Link>
           </div>
         </div>
       </nav>

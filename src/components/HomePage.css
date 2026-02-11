@@ -2112,3 +2112,267 @@ body {
   transform: translateX(4px);
 }
 
+/* ===== Mobile Navigation Enhancements ===== */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(8, 71, 52, 0.16);
+  background: #FFFFFF;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #051914;
+  transition: all 0.2s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-mobile-panel {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px 20px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(8, 71, 52, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.nav-mobile-panel.show {
+  display: flex;
+}
+
+.nav-mobile-links,
+.nav-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-mobile-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(8, 71, 52, 0.08);
+}
+
+.nav-mobile-links a:last-child {
+  border-bottom: none;
+}
+
+/* ===== Additional Responsive Tweaks ===== */
+@media (max-width: 1080px) {
+  .hero-container,
+  .services-grid-cards,
+  .vision-grid,
+  .stats-container,
+  .steps-container,
+  .features-grid-three,
+  .services-grid-modern,
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-section,
+  .services-modern-section,
+  .vision-section,
+  .trust-stats,
+  .how-it-works,
+  .faq-section,
+  .cta-section,
+  .services-section-modern,
+  .why-choose-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-container {
+    padding: 14px 20px;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .hero-container,
+  .services-grid-cards,
+  .vision-grid,
+  .stats-container,
+  .steps-container,
+  .features-grid-three,
+  .services-grid-modern,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 120px 20px 72px;
+  }
+
+  .hero-content,
+  .hero-description {
+    text-align: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image-card {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .services-modern-section,
+  .vision-section,
+  .trust-stats,
+  .how-it-works,
+  .faq-section,
+  .cta-section,
+  .services-section-modern,
+  .why-choose-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-container {
+    padding: 12px 14px;
+  }
+
+  .nav-mobile-panel {
+    padding: 0 14px 16px;
+  }
+
+  .hero-section,
+  .vision-section,
+  .trust-stats,
+  .how-it-works,
+  .faq-section,
+  .cta-section,
+  .services-modern-section,
+  .services-section-modern,
+  .why-choose-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-description,
+  .section-description,
+  .stat-description,
+  .faq-item p {
+    font-size: 15px;
+  }
+
+  .stat-card,
+  .vision-card,
+  .service-card-white,
+  .step-card {
+    padding: 20px 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .cta-title {
+    font-size: 36px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  .nav-container {
+    padding: 10px 12px;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  .logo-icon {
+    font-size: 20px;
+  }
+
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 28px;
+    font-size: 10px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .cta-title {
+    font-size: 28px;
+  }
+
+  .hero-section,
+  .vision-section,
+  .trust-stats,
+  .how-it-works,
+  .faq-section,
+  .cta-section,
+  .services-modern-section {
+    padding: 60px 14px;
+  }
+}
+

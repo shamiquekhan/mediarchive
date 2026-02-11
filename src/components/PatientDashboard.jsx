@@ -7,6 +7,7 @@ export default function PatientDashboard() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('overview');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const handleLogout = () => {
     navigate('/');
@@ -239,10 +240,26 @@ export default function PatientDashboard() {
     setSearchTerm(e.target.value);
   };
 
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const closeMobileNav = () => {
+    setIsMobileNavOpen(false);
+  };
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    closeMobileNav();
+  };
+
   return (
     <div className="modern-patient-dashboard">
+      {/* Mobile Overlay */}
+      {isMobileNavOpen && <div className="mobile-nav-overlay" onClick={closeMobileNav}></div>}
+      
       {/* Sidebar */}
-      <aside className="dashboard-sidebar">
+      <aside className={`dashboard-sidebar ${isMobileNavOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <i className="bi bi-heart-pulse-fill"></i>
           <h2>MediArchive</h2>
@@ -261,49 +278,49 @@ export default function PatientDashboard() {
         <nav className="sidebar-nav">
           <button 
             className={`nav-item ${activeTab === 'overview' ? 'active' : ''}`}
-            onClick={() => setActiveTab('overview')}
+            onClick={() => handleTabChange('overview')}
           >
             <i className="bi bi-grid-fill"></i>
             <span>Dashboard</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'health' ? 'active' : ''}`}
-            onClick={() => setActiveTab('health')}
+            onClick={() => handleTabChange('health')}
           >
             <i className="bi bi-heart-pulse"></i>
             <span>Health Vitals</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'records' ? 'active' : ''}`}
-            onClick={() => setActiveTab('records')}
+            onClick={() => handleTabChange('records')}
           >
             <i className="bi bi-file-medical-fill"></i>
             <span>Medical Records</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'appointments' ? 'active' : ''}`}
-            onClick={() => setActiveTab('appointments')}
+            onClick={() => handleTabChange('appointments')}
           >
             <i className="bi bi-calendar-check"></i>
             <span>Appointments</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'medications' ? 'active' : ''}`}
-            onClick={() => setActiveTab('medications')}
+            onClick={() => handleTabChange('medications')}
           >
             <i className="bi bi-prescription2"></i>
             <span>Medications</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'notifications' ? 'active' : ''}`}
-            onClick={() => setActiveTab('notifications')}
+            onClick={() => handleTabChange('notifications')}
           >
             <i className="bi bi-bell"></i>
             <span>Notifications</span>
           </button>
           <button 
             className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
-            onClick={() => setActiveTab('settings')}
+            onClick={() => handleTabChange('settings')}
           >
             <i className="bi bi-gear-fill"></i>
             <span>Settings</span>
@@ -322,6 +339,9 @@ export default function PatientDashboard() {
       <main className="dashboard-content">
         {/* Topbar */}
         <div className="dashboard-topbar">
+          <button className="mobile-menu-toggle" onClick={toggleMobileNav} aria-label="Toggle menu">
+            <i className="bi bi-list"></i>
+          </button>
           <div>
             <p className="greeting">Good Morning,</p>
             <h1>{patientInfo.name}</h1>

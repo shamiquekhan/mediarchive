@@ -320,3 +320,76 @@
   }
 }
 
+@media (max-width: 640px) {
+  .login-content {
+    padding: 30px 16px;
+  }
+
+  .login-card {
+    padding: 24px 20px;
+  }
+
+  .form-title {
+    font-size: 24px;
+  }
+
+  .role-subtitle {
+    font-size: 13px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .login-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .login-header {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .about-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .login-content {
+    padding: 24px 12px;
+  }
+
+  .login-card {
+    padding: 20px 16px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .role-subtitle {
+    font-size: 12px;
+  }
+
+  .form-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .login-btn {
+    padding: 11px;
+    font-size: 13px;
+  }
+}
+
