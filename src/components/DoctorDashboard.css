@@ -232,7 +232,7 @@
 /* Topbar */
 .dashboard-topbar {
   background: var(--color-white);
-  padding: 48px 64px;
+  padding: clamp(12px, 3vw, 48px) clamp(16px, 4vw, 64px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -245,16 +245,18 @@
 
 .dashboard-topbar h1 {
   font-family: var(--font-heading);
-  font-size: 56px;
+  font-size: clamp(18px, 4vw, 56px);
   font-weight: 900;
   color: var(--color-primary);
   margin: 0 0 8px 0;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .topbar-subtitle {
-  font-size: 11px;
+  font-size: clamp(9px, 1.2vw, 11px);
   color: rgba(5, 25, 20, 0.5);
   margin: 0;
   font-weight: 600;
@@ -316,7 +318,7 @@
 
 /* Dashboard Main Content */
 .dashboard-main-content {
-  padding: 64px 64px;
+  padding: clamp(16px, 4vw, 64px);
   flex: 1;
 }
 
@@ -385,7 +387,7 @@
 
 .stat-value-modern {
   font-family: var(--font-heading);
-  font-size: 48px;
+  font-size: clamp(20px, 5vw, 48px);
   font-weight: 900;
   color: var(--color-primary);
   margin-bottom: 8px;
@@ -393,7 +395,7 @@
 }
 
 .stat-label-modern {
-  font-size: 11px;
+  font-size: clamp(9px, 1.2vw, 11px);
   color: rgba(5, 25, 20, 0.5);
   margin: 0 0 8px 0;
   font-weight: 600;
@@ -764,7 +766,7 @@
 
 .card-header h3 {
   font-family: var(--font-heading);
-  font-size: 32px;
+  font-size: clamp(14px, 3vw, 32px);
   font-weight: 900;
   color: var(--color-primary);
   margin: 0;
@@ -1635,17 +1637,6 @@
     min-width: 0;
   }
 
-  .page-title {
-    font-size: 12px;
-    word-break: break-word;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  .topbar-subtitle {
-    font-size: 9px;
-  }
-
   .icon-btn {
     width: 36px;
     height: 36px;
@@ -1683,16 +1674,6 @@
   .dashboard-topbar {
     padding: 10px 14px;
     gap: 6px;
-  }
-
-  .page-title {
-    font-size: 9px;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  .topbar-subtitle {
-    font-size: 7px;
   }
 
   .dashboard-main-content {
@@ -1833,16 +1814,6 @@
     padding: 8px 10px;
   }
 
-  .page-title {
-    font-size: 8px;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  .topbar-subtitle {
-    font-size: 7px;
-  }
-
   .mobile-menu-toggle {
     width: 36px;
     height: 36px;
@@ -1864,7 +1835,7 @@
   }
 
   .stat-label-modern {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .stat-value-modern {
