@@ -1633,14 +1633,14 @@
   }
 
   .page-title {
-    font-size: 16px;
+    font-size: 14px;
     word-break: break-word;
     line-height: 1.2;
     font-weight: 700;
   }
 
   .topbar-subtitle {
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .icon-btn {
@@ -1683,13 +1683,13 @@
   }
 
   .page-title {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1.2;
     font-weight: 700;
   }
 
   .topbar-subtitle {
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .dashboard-main-content {
@@ -1760,6 +1760,11 @@
     font-size: 16px;
   }
 
+  .patient-card h3,
+  .consultation-card h3 {
+    font-size: 15px;
+  }
+
   .patient-card {
     padding: 16px;
   }
@@ -1826,13 +1831,13 @@
   }
 
   .page-title {
-    font-size: 13px;
+    font-size: 10px;
     line-height: 1.2;
     font-weight: 700;
   }
 
   .topbar-subtitle {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .mobile-menu-toggle {
@@ -1852,19 +1857,19 @@
   }
 
   .stat-number-modern {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .stat-label-modern {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .stat-value-modern {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .card-header h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .stat-card-modern {
@@ -1879,11 +1884,11 @@
 
   .patient-card h3,
   .consultation-card h3 {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .patients-data-table {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
