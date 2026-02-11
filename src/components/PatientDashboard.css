@@ -247,6 +247,15 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 968px) {
+  .dashboard-topbar h1 {
+    font-size: 18px;
+    line-height: 1.1;
+    word-break: break-word;
+    font-weight: 700;
+  }
+}
+
 .topbar-subtitle {
   font-size: 14px;
   color: rgba(5, 25, 20, 0.6);
@@ -1669,9 +1678,10 @@
   }
 
   .dashboard-topbar h1 {
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: -0.01em;
     line-height: 1.1;
+    font-weight: 700;
   }
 
   .greeting {
@@ -1894,8 +1904,9 @@
   }
 
   .dashboard-topbar h1 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.1;
+    font-weight: 700;
   }
 
   .mobile-menu-toggle {
@@ -1917,6 +1928,10 @@
 
   .dashboard-main-content {
     padding: 10px;
+  }
+
+  .section-header-main h2 {
+    font-size: 14px;
   }
 
   .stat-value {
@@ -2589,6 +2604,22 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+@media (max-width: 968px) {
+  .section-header-main h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-header-main h2 {
+    font-size: 16px;
+  }
+
+  .section-header-main {
+    margin-bottom: 16px;
+  }
 }
 
 .view-all-btn {

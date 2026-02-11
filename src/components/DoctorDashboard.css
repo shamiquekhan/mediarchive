@@ -1633,9 +1633,10 @@
   }
 
   .page-title {
-    font-size: 20px;
+    font-size: 16px;
     word-break: break-word;
     line-height: 1.2;
+    font-weight: 700;
   }
 
   .topbar-subtitle {
@@ -1682,8 +1683,9 @@
   }
 
   .page-title {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.2;
+    font-weight: 700;
   }
 
   .topbar-subtitle {
@@ -1748,6 +1750,14 @@
 
   .stat-label-modern {
     font-size: 11px;
+  }
+
+  .stat-value-modern {
+    font-size: 30px;
+  }
+
+  .card-header h3 {
+    font-size: 16px;
   }
 
   .patient-card {
@@ -1816,8 +1826,9 @@
   }
 
   .page-title {
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.2;
+    font-weight: 700;
   }
 
   .topbar-subtitle {
@@ -1846,6 +1857,14 @@
 
   .stat-label-modern {
     font-size: 10px;
+  }
+
+  .stat-value-modern {
+    font-size: 26px;
+  }
+
+  .card-header h3 {
+    font-size: 14px;
   }
 
   .stat-card-modern {
