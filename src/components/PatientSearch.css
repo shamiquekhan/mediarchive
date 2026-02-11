@@ -92,9 +92,10 @@
   padding: 14px 16px 14px 48px;
   border: 2px solid #CDEDB3;
   border-radius: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: #2A6F28;
   transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .search-input:focus {
@@ -109,10 +110,13 @@
   color: #CDEDB3;
   border: none;
   border-radius: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  min-height: 44px;
 }
 
 .search-btn:hover {

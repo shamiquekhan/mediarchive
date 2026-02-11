@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -25,6 +30,25 @@ body {
   line-height: 1.6;
   font-size: 16px;
   font-weight: 400;
+}
+
+/* Mobile Touch Optimizations */
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.btn,
+.btn-primary,
+.btn-secondary {
+  user-select: none;
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
 }
 
 /* Headings and buttons use luxury display font */

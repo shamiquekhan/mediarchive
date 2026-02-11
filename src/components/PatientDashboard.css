@@ -18,6 +18,7 @@
 .modern-patient-dashboard {
   display: flex;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   background: var(--color-bg);
   font-family: var(--font-body);
 }
@@ -291,6 +292,8 @@
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .icon-btn:hover {
@@ -1328,10 +1331,11 @@
   padding: 10px 16px;
   border: 2px solid #E2DBD0;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   transition: all 0.3s ease;
   width: 280px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .search-input:focus {
@@ -1417,6 +1421,7 @@
   margin-top: 20px;
   border-radius: 0;
   border: 1px solid #E2DBD0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .records-table {
@@ -1537,6 +1542,8 @@
   color: var(--color-primary);
   font-size: 24px;
   margin-right: 16px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .mobile-menu-toggle:hover {

@@ -68,11 +68,12 @@
   padding: 12px 16px;
   border: 2px solid #CDEDB3;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #2A6F28;
   font-family: inherit;
   transition: all 0.2s;
   background: #CDEDB3;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .form-field input:focus,

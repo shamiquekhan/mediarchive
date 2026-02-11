@@ -280,6 +280,8 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .icon-btn i {
@@ -530,6 +532,7 @@
   margin-top: 20px;
   border-radius: 0;
   border: 1px solid rgba(5, 25, 20, 0.1);
+  -webkit-overflow-scrolling: touch;
 }
 
 .patients-data-table {
