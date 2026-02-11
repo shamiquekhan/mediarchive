@@ -1502,6 +1502,121 @@ body {
   }
 }
 
+/* ===== Additional Mobile Optimization @ 640px ===== */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .cta-title {
+    font-size: 26px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+
+  .hero-section,
+  .features-section,
+  .trust-stats,
+  .vision-section,
+  .how-it-works,
+  .faq-section,
+  .cta-section {
+    padding: 60px 20px;
+  }
+
+  .nav-cta-btn,
+  .nav-cta-btn-secondary {
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+
+  .feature-card,
+  .service-card-modern {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .step-card {
+    padding: 24px 16px;
+  }
+}
+
+/* ===== Extra Small Mobile @ 375px ===== */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .cta-title {
+    font-size: 22px;
+  }
+
+  .stat-number {
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .hero-section {
+    padding: 100px 16px 50px;
+  }
+
+  .features-section,
+  .trust-stats,
+  .vision-section,
+  .how-it-works,
+  .faq-section,
+  .cta-section {
+    padding: 50px 16px;
+  }
+
+  .nav-cta-btn,
+  .nav-cta-btn-secondary {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .btn-primary-large,
+  .btn-secondary-large {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+
+  .feature-icon,
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
 /* ===== Modern Services Section ===== */
 .services-section-modern {
   padding: 120px 60px;
