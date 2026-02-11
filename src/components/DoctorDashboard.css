@@ -421,7 +421,7 @@
 
 .analytics-metric {
   font-family: var(--font-heading);
-  font-size: 64px;
+  font-size: clamp(28px, 6vw, 64px);
   font-weight: 900;
   line-height: 1;
   margin: 16px 0;
@@ -471,7 +471,7 @@
   background: var(--color-white);
   border: none;
   border-radius: 0;
-  padding: 48px 32px;
+  padding: clamp(16px, 3vw, 48px) clamp(12px, 2vw, 32px);
   box-shadow: none;
   animation: none;
 }
@@ -715,7 +715,7 @@
 
 .tracker-metric {
   font-family: var(--font-display);
-  font-size: 96px;
+  font-size: clamp(36px, 8vw, 96px);
   font-weight: 900;
   line-height: 1;
   margin: 12px 0;
@@ -856,7 +856,7 @@
 
 .metric-value-large {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: clamp(24px, 4vw, 42px);
   font-weight: 700;
   color: var(--color-primary);
   margin: 8px 0;
@@ -1079,7 +1079,7 @@
 
 /* Search Section */
 .search-section {
-  padding: 48px 32px;
+  padding: clamp(16px, 3vw, 48px) clamp(12px, 2vw, 32px);
   background: #FAFAFA;
   border-radius: 0;
   border: 1px solid rgba(5, 25, 20, 0.1);
@@ -1216,7 +1216,7 @@
 
 .coming-soon h3 {
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: clamp(18px, 3vw, 28px);
   font-weight: 600;
   color: var(--color-text-dark);
   margin: 24px 0 12px;
@@ -1236,12 +1236,12 @@
 
 .profile-header {
   background: var(--color-primary);
-  padding: 64px 48px;
+  padding: clamp(24px, 4vw, 64px) clamp(16px, 3vw, 48px);
   border-radius: 0;
   display: flex;
   align-items: center;
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: clamp(16px, 2vw, 32px);
+  margin-bottom: clamp(20px, 3vw, 40px);
   box-shadow: none;
   position: relative;
   overflow: hidden;
@@ -1278,12 +1278,13 @@
 
 .profile-header-info h2 {
   font-family: var(--font-heading);
-  font-size: 48px;
+  font-size: clamp(20px, 4vw, 48px);
   font-weight: 900;
   color: var(--color-white);
   margin: 0 0 8px 0;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  word-break: break-word;
 }
 
 .profile-subtitle {
@@ -1352,8 +1353,8 @@
 
 .profile-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  gap: clamp(16px, 2vw, 32px);
 }
 
 .info-grid {
@@ -1425,7 +1426,7 @@
 
 .stat-value {
   font-family: var(--font-heading);
-  font-size: 42px;
+  font-size: clamp(24px, 4vw, 42px);
   font-weight: 900;
   color: var(--color-text-dark);
   margin: 0 0 4px 0;
@@ -1475,12 +1476,12 @@
 .patient-details-header {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 48px 32px;
+  gap: clamp(12px, 2vw, 24px);
+  padding: clamp(20px, 3vw, 48px) clamp(16px, 2vw, 32px);
   background: var(--color-white);
   border-radius: 0;
   border: 1px solid rgba(5, 25, 20, 0.1);
-  margin-bottom: 32px;
+  margin-bottom: clamp(16px, 2vw, 32px);
 }
 
 .patient-avatar-large {
@@ -1502,12 +1503,13 @@
 
 .patient-details-header h2 {
   font-family: var(--font-heading);
-  font-size: 42px;
+  font-size: clamp(18px, 4vw, 42px);
   font-weight: 900;
   color: var(--color-text-dark);
   margin: 0 0 8px 0;
   text-transform: uppercase;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 
 .patient-abha {
@@ -1806,6 +1808,228 @@
   .timeline-item::before {
     left: -12px;
   }
+
+  /* Record rows - stack on mobile */
+  .record-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .record-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .record-icon i {
+    font-size: 18px;
+  }
+
+  .record-title {
+    font-size: 14px;
+  }
+
+  .record-meta {
+    font-size: 12px;
+  }
+
+  .record-prescription {
+    font-size: 12px;
+  }
+
+  .record-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .record-action-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Search box - stack vertically */
+  .search-box-large {
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .search-input-large {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .search-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .qr-scan-btn {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .qr-scan-btn i {
+    font-size: 22px;
+  }
+
+  .or-divider {
+    margin: 20px 0;
+  }
+
+  /* Primary button mobile */
+  .primary-btn {
+    padding: 10px 18px;
+    font-size: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Card header */
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
+
+  .card-header h3 i {
+    font-size: 18px;
+  }
+
+  /* Edit profile button */
+  .edit-profile-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  /* Profile badges stack */
+  .profile-badges {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .badge-success,
+  .badge-info {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  /* Stat items */
+  .stat-item {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .stat-item i {
+    font-size: 24px;
+  }
+
+  /* Info items */
+  .info-item {
+    padding: 14px;
+  }
+
+  .info-value {
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  /* Coming soon */
+  .coming-soon {
+    padding: 40px 16px;
+  }
+
+  .coming-soon i {
+    font-size: 56px !important;
+  }
+
+  .coming-soon p {
+    font-size: 14px;
+  }
+
+  /* Dashboard card padding */
+  .dashboard-card {
+    padding: 20px 14px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  /* Patient card body */
+  .patient-card-body {
+    gap: 8px;
+  }
+
+  .info-row {
+    font-size: 13px;
+  }
+
+  .view-patient-btn {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  /* Patient avatar */
+  .patient-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .patient-avatar i {
+    font-size: 22px;
+  }
+
+  .patient-info h4 {
+    font-size: 15px;
+  }
+
+  /* Patient details view */
+  .patient-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .patient-avatar-large {
+    width: 60px;
+    height: 60px;
+  }
+
+  .patient-avatar-large i {
+    font-size: 30px;
+  }
+
+  /* Search box in card header */
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  /* Metrics grid */
+  .metrics-visualization {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Analytics tracker */
+  .analytics-tracker {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Stats grid margin */
+  .stats-grid-modern {
+    margin-bottom: 24px;
+    gap: 1px;
+  }
 }
 
 /* Extra small screens optimization */
@@ -1827,27 +2051,15 @@
   }
 
   .dashboard-main-content {
-    padding: 10px;
+    padding: 8px;
   }
 
   .stat-number-modern {
     font-size: 18px;
   }
 
-  .stat-label-modern {
-    font-size: 9px;
-  }
-
-  .stat-value-modern {
-    font-size: 20px;
-  }
-
-  .card-header h3 {
-    font-size: 11px;
-  }
-
   .stat-card-modern {
-    padding: 16px 12px;
+    padding: 14px 10px;
   }
 
   .patient-card,
@@ -1858,11 +2070,111 @@
 
   .patient-card h3,
   .consultation-card h3 {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .patients-data-table {
-    font-size: 9px;
+    font-size: 10px;
+    min-width: 450px;
+  }
+
+  .patients-data-table thead tr th,
+  .patients-data-table tbody td {
+    padding: 8px;
+  }
+
+  .dashboard-card {
+    padding: 14px 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+
+  .record-row {
+    padding: 12px;
+  }
+
+  .record-action-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .profile-avatar-large {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-avatar-large i {
+    font-size: 28px;
+  }
+
+  .stat-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .stat-item i {
+    font-size: 20px;
+  }
+
+  .info-item {
+    padding: 10px;
+  }
+
+  .patient-avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .patient-avatar i {
+    font-size: 18px;
+  }
+
+  .patient-info h4 {
+    font-size: 13px;
+  }
+
+  .patient-meta {
+    font-size: 11px;
+  }
+
+  .coming-soon {
+    padding: 30px 10px;
+  }
+
+  .coming-soon i {
+    font-size: 48px !important;
+  }
+
+  .coming-soon h3 {
+    font-size: 18px;
+    margin: 16px 0 8px;
+  }
+
+  .coming-soon p {
+    font-size: 13px;
+  }
+
+  .gender-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .patient-avatar-small {
+    width: 32px;
+    height: 32px;
+  }
+
+  .patient-avatar-small i {
+    font-size: 16px;
+  }
+
+  .report-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .back-btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
-
